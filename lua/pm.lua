@@ -7,4 +7,9 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+    -- closing bracket completion
+    use 'rstacruz/vim-closer'
+
+    use { 'catppuccin/nvim', as = 'catppuccin' }
+
 end)
