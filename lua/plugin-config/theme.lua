@@ -1,5 +1,13 @@
+local found, catppuccin = pcall(require, "catppuccin")
+
+if not found then
+    notify("Installing catppuccin, please restart later")
+    cmd([[PackerInstall catppuccin]])
+    return
+end
+
 require("catppuccin").setup({
-    flavour = "mocha", 
+    flavour = "mocha",
     background = {
         light = "latte",
         dark = "mocha",
@@ -34,9 +42,9 @@ require("catppuccin").setup({
         gitsigns = true,
         nvimtree = true,
         telescope = true,
-        notify = false,
+        notify = true,
         mini = false,
     },
 })
 
-vim.cmd.colorscheme "catppuccin"
+cmd.colorscheme "catppuccin"
