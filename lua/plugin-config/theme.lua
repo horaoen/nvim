@@ -1,12 +1,4 @@
-local found, catppuccin = pcall(require, "catppuccin")
-
-if not found then
-    notify("Installing catppuccin, please restart later")
-    cmd([[PackerInstall catppuccin]])
-    return
-end
-
-require("catppuccin").setup({
+local setup_opts = {
     flavour = "mocha",
     background = {
         light = "latte",
@@ -45,6 +37,14 @@ require("catppuccin").setup({
         notify = true,
         mini = false,
     },
-})
+}
 
-cmd.colorscheme "catppuccin"
+return function()
+    local exist, catppuccin = pcall(require, "catppuccin")
+    if not exist then
+        return
+    end
+
+    require('catppuccin').setup(setup_opts)
+    cmd.colorscheme "catppuccin"
+end
