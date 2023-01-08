@@ -49,11 +49,10 @@ local setup_opts = {
   },
 }
 
-
-
 return function()
   local exist, nvim_tree = pcall(require, "nvim-tree")
   if not exist then
+    vim.notify("not found nvim-tree")
     return
   end
 

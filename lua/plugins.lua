@@ -56,6 +56,10 @@ require("packer").startup({
                 { 'nvim-lua/plenary.nvim' }
             }
         }
+        use {
+            "akinsho/toggleterm.nvim", tag = '*',
+            config = require('plugin-config.toggleterm')
+        }
 
         --[[
             ====== 4. language support ======

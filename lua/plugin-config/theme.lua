@@ -45,6 +45,6 @@ return function()
         return
     end
 
-    require('catppuccin').setup(setup_opts)
+    catppuccin.setup(setup_opts)
     cmd.colorscheme "catppuccin"
 end
