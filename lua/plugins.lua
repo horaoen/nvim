@@ -34,6 +34,14 @@ require("packer").startup({
         -- 3.1 edit
         use 'rstacruz/vim-closer' -- closing bracket completion
         use 'moll/vim-bbye' -- buffer delete
+        use {
+            "lukas-reineke/indent-blankline.nvim",
+            config = function()
+                require("indent_blankline").setup {
+                    filetype_exclude = { "dashboard" }
+                }
+            end
+        }
 
         -- 3.2 common
         use {
@@ -59,6 +67,16 @@ require("packer").startup({
         use {
             "akinsho/toggleterm.nvim", tag = '*',
             config = require('plugin-config.toggleterm')
+        }
+
+        use {
+            'nvim-lualine/lualine.nvim', -- statusline
+            config = require('plugin-config.lualine')
+        }
+
+        use { 
+            'glepnir/dashboard-nvim', -- dashboard
+            config = require('plugin-config.dashboard')
         }
 
         --[[
