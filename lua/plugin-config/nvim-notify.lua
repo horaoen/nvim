@@ -5,8 +5,6 @@ return function ()
         return
     end
 
-    vim.opt.termguicolors = true
-
     notify.setup({
         stages = "fade_in_slide_out",
         timeout = 3000,

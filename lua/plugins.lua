@@ -60,7 +60,7 @@ require("packer").startup({
         --[[
             ====== 4. language support ======
         --]]
-        use { 
+        use {
             'williamboman/mason.nvim',
             config = require('plugin-config.mason')
         }
