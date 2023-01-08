@@ -22,7 +22,7 @@ require("packer").startup({
         --]]
 
         -- 2.1 theme
-        use { 
+        use {
             'catppuccin/nvim', as = 'catppuccin',
             config = require('plugin-config.theme')
         }
@@ -66,8 +66,15 @@ require("packer").startup({
         --]]
         use {
             'williamboman/mason.nvim',
-            config = require('plugin-config.mason')
+            config = require('lang')
         }
+        -- 4.1 lsp
+        use {
+            "williamboman/mason-lspconfig.nvim",
+            "neovim/nvim-lspconfig",
+        }
+        -- 4.2 dap
+        use 'mfussenegger/nvim-dap'
 
         if packer_bootstrap then
             require('packer').sync()
