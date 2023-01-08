@@ -1,8 +1,6 @@
--- global aliases
-fn = vim.fn
-cmd = vim.cmd
-
--- load plugin manager of packer
+-- define global variable
+require 'global-v'
 
 require 'plugins'
 require 'autocmd'
+require 'keymap'

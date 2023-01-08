@@ -9,7 +9,6 @@ local ensure_packer = function()
 end
 
 local packer_bootstrap = ensure_packer()
-
 -- Use a protected call so we don't error out on first use
 require("packer").startup({
     function(use)
@@ -34,6 +33,7 @@ require("packer").startup({
         
         -- 3.1 edit
         use 'rstacruz/vim-closer' -- closing bracket completion
+        use 'moll/vim-bbye' -- buffer delete
 
         -- 3.2 common
         use {
@@ -50,14 +50,24 @@ require("packer").startup({
             config = require('plugin-config.nvim-tree')
         }
 
+        use {
+            'nvim-telescope/telescope.nvim', tag = '0.1.0',
+            requires = {
+                { 'nvim-lua/plenary.nvim' }
+            }
+        }
+
+        --[[
+            ====== 4. language support ======
+        --]]
+        use { 
+            'williamboman/mason.nvim',
+            config = require('plugin-config.mason')
+        }
+
         if packer_bootstrap then
             require('packer').sync()
         end
     end,
-    config = {
-        display = {
-            open_fn = require('packer.util').float,
-        }
-    }
 })
 
