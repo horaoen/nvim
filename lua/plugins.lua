@@ -10,7 +10,7 @@ end
 
 local packer_bootstrap = ensure_packer()
 -- Use a protected call so we don't error out on first use
-require("packer").startup({
+require('packer').startup({
     function(use)
         --[[
             ====== 1. packer can manage itself ======
@@ -35,10 +35,10 @@ require("packer").startup({
         use 'rstacruz/vim-closer' -- closing bracket completion
         use 'moll/vim-bbye' -- buffer delete
         use {
-            "lukas-reineke/indent-blankline.nvim",
+            'lukas-reineke/indent-blankline.nvim',
             config = function()
-                require("indent_blankline").setup {
-                    filetype_exclude = { "dashboard" }
+                require('indent_blankline').setup {
+                    filetype_exclude = { 'dashboard' }
                 }
             end
         }
@@ -65,7 +65,7 @@ require("packer").startup({
             }
         }
         use {
-            "akinsho/toggleterm.nvim", tag = '*',
+            'akinsho/toggleterm.nvim', tag = '*',
             config = require('plugin-config.toggleterm')
         }
 
@@ -88,20 +88,35 @@ require("packer").startup({
         }
         -- 4.1 lsp
         use {
-            "williamboman/mason-lspconfig.nvim",
-            "neovim/nvim-lspconfig",
+            'williamboman/mason-lspconfig.nvim',
+            'neovim/nvim-lspconfig',
         }
 
-        use {
-            'simrat39/symbols-outline.nvim',
-        }
+        use 'simrat39/symbols-outline.nvim'
 
         use 'j-hui/fidget.nvim'
         use {
-          "nvim-treesitter/nvim-treesitter"
+            'nvim-treesitter/nvim-treesitter',
+            run = ':TSUpdate',
         }
+        use {
+            'glepnir/lspsaga.nvim',
+            branch = 'main'
+        }
+
         -- 4.2 dap
         use 'mfussenegger/nvim-dap'
+
+        -- 4.3 cmp
+        use 'hrsh7th/nvim-cmp'
+
+        use 'hrsh7th/vim-vsnip'
+
+        use 'hrsh7th/cmp-vsnip'
+        use 'hrsh7th/cmp-nvim-lsp'
+        use 'hrsh7th/cmp-buffer'
+        use 'hrsh7th/cmp-path'
+        use 'hrsh7th/cmp-cmdline'
 
         if packer_bootstrap then
             require('packer').sync()

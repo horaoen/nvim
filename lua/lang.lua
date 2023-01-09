@@ -9,5 +9,8 @@ return function()
 
     -- dap setup
     require('plugin-config.nvim-dap')
+
+    -- cmp setup
+    require('plugin-config.cmp')
 end
 
