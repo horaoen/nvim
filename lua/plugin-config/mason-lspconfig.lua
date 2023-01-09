@@ -65,7 +65,3 @@ lspconfig['rust_analyzer'].setup {
 lspconfig['sumneko_lua'].setup {
 
 }
-
--- lsp tools setup
-require('plugin-config.lsptools').setup()
-

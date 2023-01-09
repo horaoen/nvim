@@ -1,6 +1,5 @@
+-- some basic keymap which is not related to plugins
 local opts = { noremap = true, silent = true }
-
-local term_opts = { silent = true }
 
 --Remap space as leader key
 keyset("", "<Space>", "<Nop>", opts)
@@ -53,22 +52,11 @@ keyset("x", "K", ":move '<-2<CR>gv-gv", opts)
 keyset("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keyset("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
-keyset("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
-keyset("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
-keyset("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
-keyset("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+keyset("t", "<C-h>", "<C-\\><C-N><C-w>h", { silent = true })
+keyset("t", "<C-j>", "<C-\\><C-N><C-w>j", { silent = true })
+keyset("t", "<C-k>", "<C-\\><C-N><C-w>k", { silent = true })
+keyset("t", "<C-l>", "<C-\\><C-N><C-w>l", { silent = true })
 
--- nvim-bbye
-keyset("n", "<C-c>", "<cmd>Bdelete<cr>", opts)
-
---telescope
-local telescope_exist, telescope = pcall(require, "telescope.builtin")
-if telescope_exist then
-    keyset('n', '<leader>ff', telescope.find_files, {})
-    keyset('n', '<leader>fg', telescope.live_grep, {})
-    keyset('n', '<leader>fb', telescope.buffers, {})
-    keyset('n', '<leader>fh', telescope.help_tags, {})
-end
-
--- nvim-tree
-keyset("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", opts)
+require('plugin-keymap.nvim-bbye')
+require('plugin-keymap.nvim-tree')
+require('plugin-keymap.telescope')

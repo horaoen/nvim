@@ -1,16 +1,12 @@
 -- manage language features, such as lsp、dap、formatter、linter、completion
 
-return function()
-    -- mason setup
-    require('plugin-config.mason')
+-- mason setup
+require('plugin-config.mason')
 
-    -- lsp setup
-    require('plugin-config.mason-lspconfig')
+-- lsp setup
+require('plugin-config.mason-lspconfig')
+require('lsptool').setup()
 
-    -- dap setup
-    require('plugin-config.nvim-dap')
-
-    -- cmp setup
-    require('plugin-config.cmp')
-end
+-- cmp setup
+require('plugin-config.cmp')
 

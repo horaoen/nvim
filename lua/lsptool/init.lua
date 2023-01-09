@@ -3,8 +3,8 @@ local lsptools_manager = {}
 lsptools_manager.tools = {
     { name = "fidget", opts = {}},
     { name = "symbols-outline", opts = {} },
-    { name = "nvim-treesitter.configs", opts = require("plugin-config.lsptool-opt.treesitter-opts")},
-    { name = "lspsaga", setup = require('plugin-config.lsptool-opt.lspsaga-setup')}
+    { name = "nvim-treesitter.configs", opts = require("lsptool.treesitter-opts")},
+    { name = "lspsaga", setup = require('lsptool.lspsaga-setup')}
 }
 
 lsptools_manager.setup = function()
@@ -19,6 +19,5 @@ lsptools_manager.setup = function()
         end
     end
 end
-
 
 return lsptools_manager

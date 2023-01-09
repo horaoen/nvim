@@ -84,7 +84,6 @@ require('packer').startup({
         --]]
         use {
             'williamboman/mason.nvim',
-            config = require('lang')
         }
         -- 4.1 lsp
         use {
