@@ -74,7 +74,7 @@ require("packer").startup({
             config = require('plugin-config.lualine')
         }
 
-        use { 
+        use {
             'glepnir/dashboard-nvim', -- dashboard
             config = require('plugin-config.dashboard')
         }
@@ -90,6 +90,15 @@ require("packer").startup({
         use {
             "williamboman/mason-lspconfig.nvim",
             "neovim/nvim-lspconfig",
+        }
+
+        use {
+            'simrat39/symbols-outline.nvim',
+        }
+
+        use 'j-hui/fidget.nvim'
+        use {
+          "nvim-treesitter/nvim-treesitter"
         }
         -- 4.2 dap
         use 'mfussenegger/nvim-dap'
