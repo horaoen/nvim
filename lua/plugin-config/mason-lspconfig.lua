@@ -26,12 +26,12 @@ end
 local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-	client.resolved_capabilities.document_formatting = false
-	client.resolved_capabilities.document_range_formatting = false
+	client.server_capabilities.document_formatting = false
+	client.server_capabilities.document_range_formatting = false
 end
 
 local exist, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if exist then
+if not exist then
 	return
 end
 
