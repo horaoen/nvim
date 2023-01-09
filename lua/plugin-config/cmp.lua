@@ -19,7 +19,6 @@ cmp_engine.setup({
     }),
 })
 
--- / 查找模式使用 buffer 源
 cmp_engine.setup.cmdline("/", {
   mapping = cmp_engine.mapping.preset.cmdline(),
   sources = {
@@ -27,7 +26,6 @@ cmp_engine.setup.cmdline("/", {
   },
 })
 
--- : 命令行模式中使用 path 和 cmdline 源.
 cmp_engine.setup.cmdline(":", {
   mapping = cmp_engine.mapping.preset.cmdline(),
   sources = cmp_engine.config.sources({

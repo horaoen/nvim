@@ -103,6 +103,10 @@ require('packer').startup({
             branch = 'main'
         }
 
+        use {
+            'jose-elias-alvarez/null-ls.nvim',
+        }
+
         -- 4.2 dap
         use 'mfussenegger/nvim-dap'
 

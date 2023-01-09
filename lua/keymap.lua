@@ -57,6 +57,10 @@ keyset("t", "<C-j>", "<C-\\><C-N><C-w>j", { silent = true })
 keyset("t", "<C-k>", "<C-\\><C-N><C-w>k", { silent = true })
 keyset("t", "<C-l>", "<C-\\><C-N><C-w>l", { silent = true })
 
+
+-- format
+keyset("n", "<leader>lf", ":lua vim.lsp.buf.format()<cr>", opts) 
+
 require('plugin-keymap.nvim-bbye')
 require('plugin-keymap.nvim-tree')
 require('plugin-keymap.telescope')
