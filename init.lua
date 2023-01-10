@@ -1,11 +1,11 @@
 -- define global variable
-require("global-v")
-require("options")
+require('global-v')
+require('options')
 
-require("plugins")
+require('plugins')
 
 -- load language config such as lsp、dap、formatter、linter、completion
-require("lang")
+require('lang')
 
-require("autocmd")
-require("keymap")
+require('autocmd')
+require('keymap')

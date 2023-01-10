@@ -9,4 +9,3 @@ require('lsptool').setup()
 
 -- cmp setup
 require('plugin-config.cmp')
-

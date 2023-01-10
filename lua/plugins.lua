@@ -1,131 +1,131 @@
 local ensure_packer = function()
-	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-	if fn.empty(fn.glob(install_path)) > 0 then
-		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-		cmd([[packadd packer.nvim]])
-		return true
-	end
-	return false
+    local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+    if fn.empty(fn.glob(install_path)) > 0 then
+        fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+        cmd([[packadd packer.nvim]])
+        return true
+    end
+    return false
 end
 
 local packer_bootstrap = ensure_packer()
 -- Use a protected call so we don't error out on first use
-require("packer").startup({
-	function(use)
-		--[[
+require('packer').startup({
+    function(use)
+        --[[
             ====== 1. packer can manage itself ======
     --]]
-		use("wbthomason/packer.nvim")
+        use('wbthomason/packer.nvim')
 
-		--[[ 
+        --[[ 
             ====== 2. outlook plugin ======
     --]]
 
-		-- 2.1 theme
-		use({
-			"catppuccin/nvim",
-			as = "catppuccin",
-			config = require("plugin-config.theme"),
-		})
+        -- 2.1 theme
+        use({
+            'catppuccin/nvim',
+            as = 'catppuccin',
+            config = require('plugin-config.theme'),
+        })
 
-		--[[ 
+        --[[ 
             ====== 3. some useful tools ======
     --]]
 
-		-- 3.1 edit
-		use("rstacruz/vim-closer") -- closing bracket completion
-		use("moll/vim-bbye") -- buffer delete
-		use({
-			"lukas-reineke/indent-blankline.nvim",
-			config = function()
-				require("indent_blankline").setup({
-					filetype_exclude = { "dashboard" },
-				})
-			end,
-		})
+        -- 3.1 edit
+        use('rstacruz/vim-closer') -- closing bracket completion
+        use('moll/vim-bbye') -- buffer delete
+        use({
+            'lukas-reineke/indent-blankline.nvim',
+            config = function()
+                require('indent_blankline').setup({
+                    filetype_exclude = { 'dashboard' },
+                })
+            end,
+        })
 
-		-- 3.2 common
-		use({
-			"rcarriga/nvim-notify", -- notify tools
-			config = require("plugin-config.nvim-notify"),
-		})
+        -- 3.2 common
+        use({
+            'rcarriga/nvim-notify', -- notify tools
+            config = require('plugin-config.nvim-notify'),
+        })
 
-		use({
-			"nvim-tree/nvim-tree.lua",
-			requires = {
-				"nvim-tree/nvim-web-devicons", -- optional, for file icons
-			},
-			tag = "nightly",
-			config = require("plugin-config.nvim-tree"),
-		})
+        use({
+            'nvim-tree/nvim-tree.lua',
+            requires = {
+                'nvim-tree/nvim-web-devicons', -- optional, for file icons
+            },
+            tag = 'nightly',
+            config = require('plugin-config.nvim-tree'),
+        })
 
-		use({
-			"nvim-telescope/telescope.nvim",
-			tag = "0.1.0",
-			requires = {
-				{ "nvim-lua/plenary.nvim" },
-			},
-		})
-		use({
-			"akinsho/toggleterm.nvim",
-			tag = "*",
-			config = require("plugin-config.toggleterm"),
-		})
+        use({
+            'nvim-telescope/telescope.nvim',
+            tag = '0.1.0',
+            requires = {
+                { 'nvim-lua/plenary.nvim' },
+            },
+        })
+        use({
+            'akinsho/toggleterm.nvim',
+            tag = '*',
+            config = require('plugin-config.toggleterm'),
+        })
 
-		use({
-			"nvim-lualine/lualine.nvim", -- statusline
-			config = require("plugin-config.lualine"),
-		})
+        use({
+            'nvim-lualine/lualine.nvim', -- statusline
+            config = require('plugin-config.lualine'),
+        })
 
-		use({
-			"glepnir/dashboard-nvim", -- dashboard
-			config = require("plugin-config.dashboard"),
-		})
+        use({
+            'glepnir/dashboard-nvim', -- dashboard
+            config = require('plugin-config.dashboard'),
+        })
 
-		--[[
+        --[[
             ====== 4. language support ======
     --]]
-		use({
-			"williamboman/mason.nvim",
-		})
-		-- 4.1 lsp
-		use({
-			"williamboman/mason-lspconfig.nvim",
-			"neovim/nvim-lspconfig",
-		})
+        use({
+            'williamboman/mason.nvim',
+        })
+        -- 4.1 lsp
+        use({
+            'williamboman/mason-lspconfig.nvim',
+            'neovim/nvim-lspconfig',
+        })
 
-		use("simrat39/symbols-outline.nvim")
+        use('simrat39/symbols-outline.nvim')
 
-		use("j-hui/fidget.nvim")
-		use({
-			"nvim-treesitter/nvim-treesitter",
-			run = ":TSUpdate",
-		})
-		use({
-			"glepnir/lspsaga.nvim",
-			branch = "main",
-		})
+        use('j-hui/fidget.nvim')
+        use({
+            'nvim-treesitter/nvim-treesitter',
+            run = ':TSUpdate',
+        })
+        use({
+            'glepnir/lspsaga.nvim',
+            branch = 'main',
+        })
 
-		use({
-			"jose-elias-alvarez/null-ls.nvim",
-		})
+        use({
+            'jose-elias-alvarez/null-ls.nvim',
+        })
 
-		-- 4.2 dap
-		use("mfussenegger/nvim-dap")
+        -- 4.2 dap
+        use('mfussenegger/nvim-dap')
 
-		-- 4.3 cmp
-		use("hrsh7th/nvim-cmp")
+        -- 4.3 cmp
+        use('hrsh7th/nvim-cmp')
 
-		use("hrsh7th/vim-vsnip")
+        use('hrsh7th/vim-vsnip')
 
-		use("hrsh7th/cmp-vsnip")
-		use("hrsh7th/cmp-nvim-lsp")
-		use("hrsh7th/cmp-buffer")
-		use("hrsh7th/cmp-path")
-		use("hrsh7th/cmp-cmdline")
+        use('hrsh7th/cmp-vsnip')
+        use('hrsh7th/cmp-nvim-lsp')
+        use('hrsh7th/cmp-buffer')
+        use('hrsh7th/cmp-path')
+        use('hrsh7th/cmp-cmdline')
 
-		if packer_bootstrap then
-			require("packer").sync()
-		end
-	end,
+        if packer_bootstrap then
+            require('packer').sync()
+        end
+    end,
 })
