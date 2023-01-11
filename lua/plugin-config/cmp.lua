@@ -16,6 +16,7 @@ cmp_engine.setup({
             ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
         })
     },
+    mapping = require('plugin-keymap.cmp')(cmp_engine),
 
     snippet = {
         expand = function(args)
