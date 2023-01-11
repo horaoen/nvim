@@ -30,6 +30,7 @@ cmp_engine.setup({
     }, {
         { name = 'buffer' },
         { name = 'path' },
+        { name = 'crates' }
     }),
 })
 

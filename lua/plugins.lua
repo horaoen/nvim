@@ -131,6 +131,13 @@ require('packer').startup({
         use('hrsh7th/cmp-buffer')
         use('hrsh7th/cmp-path')
         use('hrsh7th/cmp-cmdline')
+        -- for rust
+        use({
+            'saecki/crates.nvim',
+            tag = 'v0.3.0',
+            requires = { 'nvim-lua/plenary.nvim' },
+            config = require('plugin-config.crates'),
+        })
 
         if packer_bootstrap then
             require('packer').sync()
