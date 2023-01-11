@@ -1,11 +1,13 @@
 -- Make windows and wsl clipboard interoperable
+local autocmd = vim.api.nvim_create_autocmd
+
 if fn.has('wsl') then
     cmd([[
         augroup Yank
         autocmd!
-        autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
+        autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe',@")
         augroup END
-    ]])
+     ]])
 end
 
 cmd([[
@@ -14,3 +16,8 @@ cmd([[
     autocmd BufWritePost plugins.lua source <afile> | PackerCompile
     augroup end
 ]])
+
+autocmd("TermOpen", {
+	group = myAutoGroup,
+	command = "startinsert",
+})

@@ -110,6 +110,8 @@ require('packer').startup({
             'jose-elias-alvarez/null-ls.nvim',
         })
 
+        use('onsails/lspkind-nvim')
+
         -- 4.2 dap
         use('mfussenegger/nvim-dap')
 
