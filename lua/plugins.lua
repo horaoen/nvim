@@ -82,6 +82,12 @@ require('packer').startup({
             config = require('plugin-config.dashboard'),
         })
 
+        use({
+            'akinsho/bufferline.nvim',
+            tag = 'v3.*',
+            config = require('plugin-config.bufferline'),
+        })
+
         --[[
             ====== 4. language support ======
     --]]
