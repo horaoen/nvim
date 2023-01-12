@@ -10,6 +10,8 @@ You have to resolve network issues e.g. via proxy(global proxy) before all. I be
 
 ## Usage
 
+install neovim [neovim vim install](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+
 ```
 $ git clone https://github.com/horaoen/nvim.git ~/.config/nvim
 ```
