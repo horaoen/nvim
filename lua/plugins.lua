@@ -100,8 +100,6 @@ require('packer').startup({
             'neovim/nvim-lspconfig',
         })
 
-        use('simrat39/symbols-outline.nvim')
-
         use('j-hui/fidget.nvim')
         use({
             'nvim-treesitter/nvim-treesitter',

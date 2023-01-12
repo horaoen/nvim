@@ -1,4 +1,4 @@
-local exist, lspsaga = pcall(require, 'lspsaga')
+local exist, _ = pcall(require, 'lspsaga')
 if not exist then
     return
 end
@@ -20,7 +20,7 @@ keyset('n', ']E', function()
     require('lspsaga.diagnostic').goto_next({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
 
-keyset('n', '<leader>o', '<cmd>LSoutlineToggle<CR>', { silent = true })
+keyset('n', '<leader>o', '<cmd>Lspsaga outline<CR>', { silent = true })
 keyset('n', 'K', '<cmd>Lspsaga hover_doc<CR>', { silent = true })
 keyset('n', '<A-d>', '<cmd>Lspsaga open_floaterm<CR>', { silent = true })
 keyset('n', '<A-d>', '<cmd>Lspsaga open_floaterm lazygit<CR>', { silent = true })
