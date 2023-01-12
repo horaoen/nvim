@@ -9,3 +9,7 @@ require('lsptool').setup()
 
 -- cmp setup
 require('plugin-config.cmp')
+
+-- dev for rust
+require('plugin-config.rust-tools')
+require('plugin-config.crates')

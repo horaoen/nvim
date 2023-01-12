@@ -47,16 +47,6 @@ lspconfig['tsserver'].setup({
     flags = lsp_flags,
 })
 
-lspconfig['rust_analyzer'].setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = lsp_flags,
-    -- Server-specific settings...
-    settings = {
-        ['rust-analyzer'] = {},
-    },
-})
-
 lspconfig['sumneko_lua'].setup({
     on_attach = on_attach,
     capabilities = capabilities,

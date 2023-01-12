@@ -134,8 +134,9 @@ require('packer').startup({
             'saecki/crates.nvim',
             tag = 'v0.3.0',
             requires = { 'nvim-lua/plenary.nvim' },
-            config = require('plugin-config.crates'),
         })
+
+        use('simrat39/rust-tools.nvim')
 
         if packer_bootstrap then
             require('packer').sync()
