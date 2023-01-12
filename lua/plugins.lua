@@ -40,11 +40,7 @@ require('packer').startup({
         use('moll/vim-bbye') -- buffer delete
         use({
             'lukas-reineke/indent-blankline.nvim',
-            config = function()
-                require('indent_blankline').setup({
-                    filetype_exclude = { 'dashboard' },
-                })
-            end,
+            config = require('plugin-config.indent-blankline')
         })
 
         -- 3.2 common
