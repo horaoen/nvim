@@ -8,13 +8,13 @@ cmd([[
     augroup end
 ]])
 
-autocmd("TermOpen", {
-	group = myAutoGroup,
-	command = "startinsert",
+autocmd('TermOpen', {
+    group = myAutoGroup,
+    command = 'startinsert',
 })
 
-if vim.fn.has("wsl") then
-	vim.cmd([[
+if vim.fn.has('wsl') then
+    vim.cmd([[
       augroup Yank
       autocmd!
       autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")

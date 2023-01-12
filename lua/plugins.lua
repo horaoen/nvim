@@ -33,7 +33,10 @@ require('packer').startup({
     --]]
 
         -- 3.1 edit
-        use('rstacruz/vim-closer') -- closing bracket completion
+        use({
+            'windwp/nvim-autopairs',
+            config = require('plugin-config.autopairs')
+        })
         use('moll/vim-bbye') -- buffer delete
         use({
             'lukas-reineke/indent-blankline.nvim',
