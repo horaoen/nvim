@@ -70,6 +70,7 @@ $ git clone https://github.com/horaoen/nvim.git ~/.config/nvim
 3. rustfmt
 4. stylua
 5. eslint
+6. glow
 
 ## Plugin list
 

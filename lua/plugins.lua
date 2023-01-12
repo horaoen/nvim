@@ -35,12 +35,12 @@ require('packer').startup({
         -- 3.1 edit
         use({
             'windwp/nvim-autopairs',
-            config = require('plugin-config.autopairs')
+            config = require('plugin-config.autopairs'),
         })
         use('moll/vim-bbye') -- buffer delete
         use({
             'lukas-reineke/indent-blankline.nvim',
-            config = require('plugin-config.indent-blankline')
+            config = require('plugin-config.indent-blankline'),
         })
 
         -- 3.2 common
@@ -85,6 +85,11 @@ require('packer').startup({
             'akinsho/bufferline.nvim',
             tag = 'v3.*',
             config = require('plugin-config.bufferline'),
+        })
+
+        use({
+            'ellisonleao/glow.nvim',
+            config = require('plugin-config.glow')
         })
 
         --[[
