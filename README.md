@@ -103,6 +103,7 @@ $ git clone https://github.com/horaoen/nvim.git ~/.config/nvim
 - [hrsh7th/cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)
 - [saecki/crates.nvim](https://github.com/saecki/crates.nvim)
 - [simrat39/rust-tools.nvim](https://github.com/simrat39/rust-tools.nvim)
+- [ellisonleao/glow.nvim](https://github.com/ellisonleao/glow.nvim)
 ## Keymap
 
 ### basic
