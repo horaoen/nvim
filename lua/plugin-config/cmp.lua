@@ -6,6 +6,8 @@ return function()
 
     local exist, lspkind = pcall(require, 'lspkind')
     if not exist then
+        vim.notify('lspkind not load before cmp')
+        return
     end
 
     cmp_engine.setup({

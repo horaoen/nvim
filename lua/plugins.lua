@@ -53,11 +53,11 @@ require('packer').startup({
         })
 
         use({
-           'nvim-tree/nvim-tree.lua',
-           requires = {
-               'nvim-tree/nvim-web-devicons', -- optional, for file icons
-           },
-           tag = 'nightly',
+            'nvim-tree/nvim-tree.lua',
+            requires = {
+                'nvim-tree/nvim-web-devicons', -- optional, for file icons
+            },
+            tag = 'nightly',
             config = require('plugin-config.nvim-tree'),
         })
 
@@ -121,26 +121,25 @@ require('packer').startup({
 
         use({
             'neovim/nvim-lspconfig',
-            after = 'cmp-nvim-lsp',
+            after = { 'cmp-nvim-lsp', 'fidget.nvim' },
             config = require('plugin-config.lsp-config'),
         })
 
         use({
             'j-hui/fidget.nvim',
-            event = 'BufRead',
+            event = 'BufAdd',
             config = require('plugin-config.fidget'),
         })
         use({
             'nvim-treesitter/nvim-treesitter',
-            event = 'BufRead',
             run = ':TSUpdate',
+            config = require('plugin-config.nvim-treesitter'),
         })
 
         use({
             'glepnir/lspsaga.nvim',
             event = 'BufRead',
             branch = 'main',
-            after = 'nvim-lspconfig',
             config = require('plugin-config.lspsaga'),
         })
 
@@ -152,7 +151,7 @@ require('packer').startup({
 
         use({
             'onsails/lspkind-nvim',
-            after = 'fidget.nvim',
+            event = 'BufAdd',
         })
 
         -- 4.2 dap
@@ -161,7 +160,6 @@ require('packer').startup({
         -- 4.3 cmp
         use({
             'hrsh7th/nvim-cmp',
-            event = 'BufRead',
             after = 'lspkind-nvim',
             config = require('plugin-config.cmp'),
         })
@@ -176,7 +174,7 @@ require('packer').startup({
         use({
             'saecki/crates.nvim',
             tag = 'v0.3.0',
-            event = 'BufRead',
+            after = 'null-ls.nvim',
             requires = { 'nvim-lua/plenary.nvim' },
             config = require('plugin-config.crates'),
         })
