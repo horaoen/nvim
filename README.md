@@ -15,9 +15,15 @@ install neovim [neovim vim install](https://github.com/neovim/neovim/wiki/Instal
 ```
 $ git clone https://github.com/horaoen/nvim.git ~/.config/nvim
 ```
+## Feature
+- Fast(lazy loading)
+- Centralized management of keymap for easy viewing and modification
+- Comfortable rust programming environment
+- The code is simple and easy for secondary development
 
 ## Structure
 ```
+.config/nvim/
 ├── ftplugin
 │   └── lua.lua
 ├── init.lua
@@ -25,13 +31,6 @@ $ git clone https://github.com/horaoen/nvim.git ~/.config/nvim
 │   ├── autocmd.lua
 │   ├── global-v.lua
 │   ├── keymap.lua
-│   ├── lang.lua
-│   ├── lsptool
-│   │   ├── init.lua
-│   │   ├── lspkind.lua
-│   │   ├── lspsaga-setup.lua
-│   │   ├── null-ls.lua
-│   │   └── treesitter-opts.lua
 │   ├── options.lua
 │   ├── plugin-config
 │   │   ├── autopairs.lua
@@ -39,12 +38,18 @@ $ git clone https://github.com/horaoen/nvim.git ~/.config/nvim
 │   │   ├── cmp.lua
 │   │   ├── crates.lua
 │   │   ├── dashboard.lua
+│   │   ├── fidget.lua
+│   │   ├── glow.lua
 │   │   ├── indent-blankline.lua
+│   │   ├── lsp-config.lua
+│   │   ├── lspsaga.lua
 │   │   ├── lualine.lua
 │   │   ├── mason-lspconfig.lua
 │   │   ├── mason.lua
+│   │   ├── null-ls.lua
 │   │   ├── nvim-notify.lua
 │   │   ├── nvim-tree.lua
+│   │   ├── nvim-treesitter.lua
 │   │   ├── rust-tools.lua
 │   │   ├── theme.lua
 │   │   └── toggleterm.lua
@@ -52,16 +57,11 @@ $ git clone https://github.com/horaoen/nvim.git ~/.config/nvim
 │   │   ├── cmp.lua
 │   │   ├── crates.lua
 │   │   ├── lspsaga.lua
-│   │   ├── nvim-bbye.lua
-│   │   ├── nvim-tree.lua
-│   │   ├── telescope.lua
 │   │   └── toggleterm.lua
 │   └── plugins.lua
-├── plugin
-│   └── packer_compiled.lua
 └── README.md
 ```
-## Dependence
+## Dependences
 
 > You can use your package manager to install them. Errors may still be reported after installing them, you only need to install the default dependencies through "heckheath" command in neovim.
 
@@ -73,7 +73,6 @@ $ git clone https://github.com/horaoen/nvim.git ~/.config/nvim
 6. glow
 
 ## Plugin list
-
 - [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
 - [catppuccin/nvim](https://github.com/catppuccin/nvim)
 - [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
