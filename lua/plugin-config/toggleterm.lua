@@ -4,4 +4,6 @@ return function()
         return
     end
     toggleterm.setup()
+
+    require('plugin-keymap.toggleterm')
 end

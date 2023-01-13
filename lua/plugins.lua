@@ -14,12 +14,12 @@ require('packer').startup({
     function(use)
         --[[
             ====== 1. packer can manage itself ======
-    --]]
+        --]]
         use('wbthomason/packer.nvim')
 
         --[[ 
             ====== 2. outlook plugin ======
-    --]]
+        --]]
 
         -- 2.1 theme
         use({
@@ -30,16 +30,19 @@ require('packer').startup({
 
         --[[ 
             ====== 3. some useful tools ======
-    --]]
+        --]]
 
-        -- 3.1 edit
         use({
             'windwp/nvim-autopairs',
+            event = 'VimEnter',
             config = require('plugin-config.autopairs'),
         })
-        use('moll/vim-bbye') -- buffer delete
+
+        use({ 'moll/vim-bbye', event = 'BufRead' }) -- buffer delete
+
         use({
             'lukas-reineke/indent-blankline.nvim',
+            event = 'BufRead',
             config = require('plugin-config.indent-blankline'),
         })
 
@@ -50,16 +53,17 @@ require('packer').startup({
         })
 
         use({
-            'nvim-tree/nvim-tree.lua',
-            requires = {
-                'nvim-tree/nvim-web-devicons', -- optional, for file icons
-            },
-            tag = 'nightly',
+           'nvim-tree/nvim-tree.lua',
+           requires = {
+               'nvim-tree/nvim-web-devicons', -- optional, for file icons
+           },
+           tag = 'nightly',
             config = require('plugin-config.nvim-tree'),
         })
 
         use({
             'nvim-telescope/telescope.nvim',
+            cmd = 'Telescope',
             tag = '0.1.0',
             requires = {
                 { 'nvim-lua/plenary.nvim' },
@@ -84,63 +88,104 @@ require('packer').startup({
         use({
             'akinsho/bufferline.nvim',
             tag = 'v3.*',
+            event = 'BufRead',
             config = require('plugin-config.bufferline'),
         })
 
         use({
             'ellisonleao/glow.nvim',
-            config = require('plugin-config.glow')
+            config = require('plugin-config.glow'),
+            cmd = 'Glow',
+        })
+
+        use({
+            'numToStr/Comment.nvim',
+            event = 'User ActuallyEditing',
+            config = function()
+                require('Comment').setup({})
+            end,
         })
 
         --[[
             ====== 4. language support ======
-    --]]
+        --]]
         use({
             'williamboman/mason.nvim',
+            config = require('plugin-config.mason'),
         })
         -- 4.1 lsp
         use({
             'williamboman/mason-lspconfig.nvim',
-            'neovim/nvim-lspconfig',
+            config = require('plugin-config.mason-lspconfig'),
         })
 
-        use('j-hui/fidget.nvim')
         use({
-            'nvim-treesitter/nvim-treesitter',
-            run = ':TSUpdate',
+            'neovim/nvim-lspconfig',
+            after = 'cmp-nvim-lsp',
+            config = require('plugin-config.lsp-config'),
+        })
+
+        use({
+            'j-hui/fidget.nvim',
+            event = 'BufRead',
+            config = require('plugin-config.fidget'),
         })
         use({
+            'nvim-treesitter/nvim-treesitter',
+            event = 'BufRead',
+            run = ':TSUpdate',
+        })
+
+        use({
             'glepnir/lspsaga.nvim',
+            event = 'BufRead',
             branch = 'main',
+            after = 'nvim-lspconfig',
+            config = require('plugin-config.lspsaga'),
         })
 
         use({
             'jose-elias-alvarez/null-ls.nvim',
+            event = 'BufRead',
+            config = require('plugin-config.null-ls'),
         })
 
-        use('onsails/lspkind-nvim')
+        use({
+            'onsails/lspkind-nvim',
+            after = 'fidget.nvim',
+        })
 
         -- 4.2 dap
         use('mfussenegger/nvim-dap')
 
         -- 4.3 cmp
-        use('hrsh7th/nvim-cmp')
+        use({
+            'hrsh7th/nvim-cmp',
+            event = 'BufRead',
+            after = 'lspkind-nvim',
+            config = require('plugin-config.cmp'),
+        })
 
-        use('hrsh7th/vim-vsnip')
-
-        use('hrsh7th/cmp-vsnip')
-        use('hrsh7th/cmp-nvim-lsp')
-        use('hrsh7th/cmp-buffer')
-        use('hrsh7th/cmp-path')
-        use('hrsh7th/cmp-cmdline')
+        use({ 'hrsh7th/vim-vsnip', after = 'nvim-cmp' })
+        use({ 'hrsh7th/cmp-vsnip', after = 'nvim-cmp' })
+        use({ 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp' })
+        use({ 'hrsh7th/cmp-buffer', after = 'nvim-cmp' })
+        use({ 'hrsh7th/cmp-path', after = 'nvim-cmp' })
+        use({ 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' })
         -- for rust
         use({
             'saecki/crates.nvim',
             tag = 'v0.3.0',
+            event = 'BufRead',
             requires = { 'nvim-lua/plenary.nvim' },
+            config = require('plugin-config.crates'),
         })
 
-        use('simrat39/rust-tools.nvim')
+        use({
+            'simrat39/rust-tools.nvim',
+            after = 'nvim-lspconfig',
+            config = require('plugin-config.rust-tools'),
+        })
 
         if packer_bootstrap then
             require('packer').sync()

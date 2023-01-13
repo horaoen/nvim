@@ -46,9 +46,9 @@ function _PYTHON_TOGGLE()
     python:toggle()
 end
 
-keyset('n', '<leader>tg', '<cmd>lua _LAZYGIT_TOGGLE()<CR>', { noremap = true, silent = true })
 keyset('n', '<leader>tt', '<cmd>ToggleTerm size=10 direction=horizontal<cr>', { noremap = true, silent = true })
 keyset('n', '<leader>tv', '<cmd>ToggleTerm size=80 direction=vertical<cr>', { noremap = true, silent = true })
+keyset('n', '<leader>tg', '<cmd>lua _LAZYGIT_TOGGLE()<CR>', { noremap = true, silent = true })
 keyset('n', '<leader>tn', '<cmd>lua _NODE_TOGGLE()<CR>', { noremap = true, silent = true })
 keyset('n', '<leader>td', '<cmd>lua _NCDU_TOGGLE()<CR>', { noremap = true, silent = true })
 keyset('n', '<leader>tp', '<cmd>lua _PYTHON_TOGGLE()<CR>', { noremap = true, silent = true })

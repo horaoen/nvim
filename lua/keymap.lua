@@ -60,9 +60,14 @@ keyset('t', '<C-l>', '<C-\\><C-N><C-w>l', { silent = true })
 -- format
 keyset('n', '<leader>lf', ':lua vim.lsp.buf.format()<cr>', opts)
 
-require('plugin-keymap.nvim-bbye')
-require('plugin-keymap.nvim-tree')
-require('plugin-keymap.telescope')
+keyset('n', '<C-c>', '<cmd>Bdelete<cr>', opts)
+
+keyset('n', '<leader>e', '<cmd>NvimTreeToggle<cr>', opts)
+
+keyset('n', '<leader>ff', '<cmd>Telescope find_files<cr>', {})
+keyset('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', {})
+keyset('n', '<leader>fb', '<cmd>Telescope buffers<cr>', {})
+keyset('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', {})
+
 require('plugin-keymap.crates')
 require('plugin-keymap.toggleterm')
-require('plugin-keymap.lspsaga')
