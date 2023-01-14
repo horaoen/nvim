@@ -105,7 +105,11 @@ require('packer').startup({
                 require('Comment').setup({})
             end,
         })
-
+        use({
+            'Pocco81/auto-save.nvim',
+            event = 'BufRead',
+            config = require('plugin-config.auto-save'),
+        })
         --[[
             ====== 4. language support ======
         --]]
