@@ -25,40 +25,43 @@ $ git clone https://github.com/horaoen/nvim.git ~/.config/nvim
 ```
 .config/nvim/
 ├── ftplugin
-│   └── lua.lua
+│   └── lua.lua
 ├── init.lua
 ├── lua
-│   ├── autocmd.lua
-│   ├── global-v.lua
-│   ├── keymap.lua
-│   ├── options.lua
-│   ├── plugin-config
-│   │   ├── autopairs.lua
-│   │   ├── bufferline.lua
-│   │   ├── cmp.lua
-│   │   ├── crates.lua
-│   │   ├── dashboard.lua
-│   │   ├── fidget.lua
-│   │   ├── glow.lua
-│   │   ├── indent-blankline.lua
-│   │   ├── lsp-config.lua
-│   │   ├── lspsaga.lua
-│   │   ├── lualine.lua
-│   │   ├── mason-lspconfig.lua
-│   │   ├── mason.lua
-│   │   ├── null-ls.lua
-│   │   ├── nvim-notify.lua
-│   │   ├── nvim-tree.lua
-│   │   ├── nvim-treesitter.lua
-│   │   ├── rust-tools.lua
-│   │   ├── theme.lua
-│   │   └── toggleterm.lua
-│   ├── plugin-keymap
-│   │   ├── cmp.lua
-│   │   ├── crates.lua
-│   │   ├── lspsaga.lua
-│   │   └── toggleterm.lua
-│   └── plugins.lua
+│   ├── autocmd.lua
+│   ├── global-v.lua
+│   ├── keymap.lua
+│   ├── options.lua
+│   ├── plugin-config
+│   │   ├── autopairs.lua
+│   │   ├── auto-save.lua
+│   │   ├── bufferline.lua
+│   │   ├── cmp.lua
+│   │   ├── crates.lua
+│   │   ├── dashboard.lua
+│   │   ├── fidget.lua
+│   │   ├── glow.lua
+│   │   ├── indent-blankline.lua
+│   │   ├── lsp-config.lua
+│   │   ├── lspsaga.lua
+│   │   ├── lualine.lua
+│   │   ├── mason-lspconfig.lua
+│   │   ├── mason.lua
+│   │   ├── null-ls.lua
+│   │   ├── nvim-notify.lua
+│   │   ├── nvim-tree.lua
+│   │   ├── nvim-treesitter.lua
+│   │   ├── rust-tools.lua
+│   │   ├── theme.lua
+│   │   └── toggleterm.lua
+│   ├── plugin-keymap
+│   │   ├── cmp.lua
+│   │   ├── crates.lua
+│   │   ├── lspsaga.lua
+│   │   └── toggleterm.lua
+│   └── plugins.lua
+├── plugin
+│   └── packer_compiled.lua
 └── README.md
 ```
 ## Dependences
@@ -103,6 +106,7 @@ $ git clone https://github.com/horaoen/nvim.git ~/.config/nvim
 - [saecki/crates.nvim](https://github.com/saecki/crates.nvim)
 - [simrat39/rust-tools.nvim](https://github.com/simrat39/rust-tools.nvim)
 - [ellisonleao/glow.nvim](https://github.com/ellisonleao/glow.nvim)
+- [Pocco81/auto-save.nvim](https://github.com/Pocco81/auto-save.nvim)
 ## Keymap
 
 ### basic
