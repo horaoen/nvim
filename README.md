@@ -107,6 +107,7 @@ $ git clone https://github.com/horaoen/nvim.git ~/.config/nvim
 - [simrat39/rust-tools.nvim](https://github.com/simrat39/rust-tools.nvim)
 - [ellisonleao/glow.nvim](https://github.com/ellisonleao/glow.nvim)
 - [Pocco81/auto-save.nvim](https://github.com/Pocco81/auto-save.nvim)
+- [HiPhish/nvim-ts-rainbow2](https://github.com/HiPhish/nvim-ts-rainbow2)
 ## Keymap
 
 ### basic

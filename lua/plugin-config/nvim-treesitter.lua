@@ -22,5 +22,12 @@ return function()
             enable = true,
             additional_vim_regex_highlighting = false,
         },
+        rainbow = {
+            enable = true,
+            -- Which query to use for finding delimiters
+            query = 'rainbow-parens',
+            strategy = require 'ts-rainbow.strategy.global',
+            max_file_lines = 1000
+        }
     })
 end

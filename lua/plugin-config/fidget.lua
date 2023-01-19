@@ -5,5 +5,5 @@ return function()
         return
     end
 
-    fidget.setup()
+    fidget.setup({})
 end

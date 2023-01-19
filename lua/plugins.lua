@@ -100,7 +100,7 @@ require('packer').startup({
 
         use({
             'numToStr/Comment.nvim',
-            event = 'User ActuallyEditing',
+            event = 'BufRead',
             config = function()
                 require('Comment').setup({})
             end,
@@ -138,6 +138,10 @@ require('packer').startup({
             'nvim-treesitter/nvim-treesitter',
             run = ':TSUpdate',
             config = require('plugin-config.nvim-treesitter'),
+        })
+
+        use({
+            'HiPhish/nvim-ts-rainbow2',
         })
 
         use({
