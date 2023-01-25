@@ -68,6 +68,7 @@ keyset('n', '<leader>ff', '<cmd>Telescope find_files<cr>', {})
 keyset('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', {})
 keyset('n', '<leader>fb', '<cmd>Telescope buffers<cr>', {})
 keyset('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', {})
+keyset('n', '<leader>fp', '<cmd>Telescope projects<cr>', {})
 
 require('plugin-keymap.crates')
 require('plugin-keymap.toggleterm')

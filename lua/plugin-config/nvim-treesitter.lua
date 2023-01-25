@@ -3,6 +3,11 @@ return function()
     if not exist then
         return
     end
+    local exist, rainbow = pcall(require, 'ts-rainbow.strategy.global')
+
+    if not exist then
+        return
+    end
     treesitter.setup({
         ensure_installed = {
             'c',
@@ -17,17 +22,10 @@ return function()
             'html',
             'cpp'
         },
-        sync_install = true,
+        sync_install = false,
         highlight = {
             enable = true,
             additional_vim_regex_highlighting = false,
         },
-        rainbow = {
-            enable = true,
-            -- Which query to use for finding delimiters
-            query = 'rainbow-parens',
-            strategy = require 'ts-rainbow.strategy.global',
-            max_file_lines = 1000
-        }
     })
 end

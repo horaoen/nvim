@@ -45,7 +45,6 @@ require('packer').startup({
             event = 'BufRead',
             config = require('plugin-config.indent-blankline'),
         })
-
         -- 3.2 common
         use({
             'rcarriga/nvim-notify', -- notify tools
@@ -63,11 +62,13 @@ require('packer').startup({
 
         use({
             'nvim-telescope/telescope.nvim',
-            cmd = 'Telescope',
             tag = '0.1.0',
             requires = {
                 { 'nvim-lua/plenary.nvim' },
             },
+            config = function()
+                require('telescope').load_extension('projects')
+            end,
         })
         use({
             'akinsho/toggleterm.nvim',
@@ -81,7 +82,8 @@ require('packer').startup({
         })
 
         use({
-            'glepnir/dashboard-nvim', -- dashboard
+            'goolord/alpha-nvim',
+            requires = { 'nvim-tree/nvim-web-devicons' },
             config = require('plugin-config.dashboard'),
         })
 
@@ -109,6 +111,22 @@ require('packer').startup({
             'Pocco81/auto-save.nvim',
             event = 'BufRead',
             config = require('plugin-config.auto-save'),
+        })
+
+        use({
+            'ahmedkhalf/project.nvim',
+            config = function()
+                require('project_nvim').setup({})
+            end,
+        })
+        use({
+            'rmagatti/auto-session',
+            config = function()
+                require('auto-session').setup({
+                    log_level = 'error',
+                    auto_session_suppress_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
+                })
+            end,
         })
         --[[
             ====== 4. language support ======
@@ -138,10 +156,6 @@ require('packer').startup({
             'nvim-treesitter/nvim-treesitter',
             run = ':TSUpdate',
             config = require('plugin-config.nvim-treesitter'),
-        })
-
-        use({
-            'HiPhish/nvim-ts-rainbow2',
         })
 
         use({

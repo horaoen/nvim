@@ -1,10 +1,12 @@
 return function()
-    local exist, dashboard = pcall(require, 'dashboard')
-    if not exist then
+    local status_ok, alpha = pcall(require, 'alpha')
+    if not status_ok then
         return
     end
 
-    dashboard.custom_header = {
+    local dashboard = require('alpha.themes.dashboard')
+    dashboard.section.header.val = {
+        [[]],
         [[ ⣇⣿⠘⣿⣿⣿⡿⡿⣟⣟⢟⢟⢝⠵⡝⣿⡿⢂⣼⣿⣷⣌⠩⡫⡻⣝⠹⢿⣿⣷ ]],
         [[ ⡆⣿⣆⠱⣝⡵⣝⢅⠙⣿⢕⢕⢕⢕⢝⣥⢒⠅⣿⣿⣿⡿⣳⣌⠪⡪⣡⢑⢝⣇ ]],
         [[ ⡆⣿⣿⣦⠹⣳⣳⣕⢅⠈⢗⢕⢕⢕⢕⢕⢈⢆⠟⠋⠉⠁⠉⠉⠁⠈⠼⢐⢕⢽ ]],
@@ -19,51 +21,28 @@ return function()
         [[ ⡕⡑⣑⣈⣻⢗⢟⢞⢝⣻⣿⣿⣿⣿⣿⣿⣿⠸⣿⠿⠃⣿⣿⣿⣿⣿⣿⡿⠁⣠ ]],
         [[ ⡝⡵⡈⢟⢕⢕⢕⢕⣵⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣿⣿⣿⣿⣿⠿⠋⣀⣈⠙ ]],
         [[ ⡝⡵⡕⡀⠑⠳⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⢉⡠⡲⡫⡪⡪⡣ ]],
-        [[]],
-        [[]],
+        [[ ]],
     }
-    dashboard.custom_footer = {
-        [[]],
-        [[]],
-        'practice makes perfect!',
-        [[]],
+    dashboard.section.buttons.val = {
+        dashboard.button('f', '  Find file', ':Telescope find_files <CR>'),
+        dashboard.button('e', '  New file', ':ene <BAR> startinsert <CR>'),
+        dashboard.button('p', '  Find project', ':Telescope projects <CR>'),
+        dashboard.button('r', '  Recently used files', ':Telescope oldfiles <CR>'),
+        dashboard.button('t', '  Find text', ':Telescope live_grep <CR>'),
+        dashboard.button('c', '  Configuration', ':e ~/.config/nvim/ <CR>'),
+        dashboard.button('q', '  Quit Neovim', ':qa<CR>'),
     }
-    dashboard.custom_center = {
-        {
-            icon = '  ',
-            desc = 'Recently latest session                  ',
-            shortcut = 'SPC s l',
-            action = 'SessionLoad',
-        },
-        {
-            icon = '  ',
-            desc = 'Recently opened files                   ',
-            action = 'DashboardFindHistory',
-            shortcut = 'SPC f h',
-        },
-        {
-            icon = '  ',
-            desc = 'Find  File                              ',
-            action = 'Telescope find_files find_command=rg,--hidden,--files',
-            shortcut = 'SPC f f',
-        },
-        {
-            icon = '  ',
-            desc = 'File Browser                            ',
-            action = 'Telescope file_browser',
-            shortcut = 'SPC f b',
-        },
-        {
-            icon = '  ',
-            desc = 'Find  word                              ',
-            action = 'Telescope live_grep',
-            shortcut = 'SPC f w',
-        },
-        {
-            icon = '  ',
-            desc = 'Open Personal dotfiles                  ',
-            action = 'Telescope dotfiles path=' .. home .. '/.dotfiles',
-            shortcut = 'SPC f d',
-        },
-    }
+
+    local function footer()
+        return 'practice makes prefect'
+    end
+
+    dashboard.section.footer.val = footer()
+
+    dashboard.section.footer.opts.hl = 'Type'
+    dashboard.section.header.opts.hl = 'Include'
+    dashboard.section.buttons.opts.hl = 'Keyword'
+
+    dashboard.opts.opts.noautocmd = true
+    alpha.setup(dashboard.opts)
 end
