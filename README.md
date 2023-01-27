@@ -65,7 +65,7 @@ $ git clone https://github.com/horaoen/nvim.git ~/.config/nvim
 ## Dependences
 
 > You can use your package manager to install them. Errors may still be reported after installing them, you only need to install the default dependencies through "heckheath" command in neovim.
-
+> You can use 'MasonInstall rustfmt'、'MasonInstall stylua' in neovim to install dependencies 3、4.
 1. ripgrep
 2. lazygit
 3. rustfmt
