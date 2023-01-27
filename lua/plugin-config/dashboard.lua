@@ -34,7 +34,7 @@ return function()
     }
 
     local function footer()
-        return 'practice makes prefect'
+        return 'practice makes perfect'
     end
 
     dashboard.section.footer.val = footer()
