@@ -1,9 +1,10 @@
 return function()
-    local exist, toggleterm = pcall(require, 'toggleterm')
-    if not exist then
-        return
-    end
-    toggleterm.setup()
+    local opts = {
+        float_opts = {
+            width = 120,
+            height = 30,
+        },
+    }
 
-    require('plugin-keymap.toggleterm')
+    require('toggleterm').setup(opts)
 end

@@ -1,14 +1,6 @@
 return function()
-    local exist, cmp_engine = pcall(require, 'cmp')
-    if not exist then
-        return
-    end
-
-    local exist, lspkind = pcall(require, 'lspkind')
-    if not exist then
-        vim.notify('lspkind not load before cmp')
-        return
-    end
+    local cmp_engine = require('cmp')
+    local lspkind = require('lspkind')
 
     cmp_engine.setup({
         formatting = {
@@ -18,7 +10,7 @@ return function()
                 ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
             }),
         },
-        mapping = require('plugin-keymap.cmp')(cmp_engine),
+        mapping = require('keymap').cmp(cmp_engine),
 
         snippet = {
             expand = function(args)

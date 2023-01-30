@@ -1,15 +1,11 @@
 return function()
-    local exist, crates = pcall(require, 'crates')
+    local null_ls = require('null-ls')
 
-    if not exist then
-        return
-    end
-
-    local _, null_ls = pcall(require, 'null-ls')
-    crates.setup({
+    require('crates').setup({
         null_ls = {
             enabled = true,
             name = 'crates.nvim',
         },
     })
+
 end
