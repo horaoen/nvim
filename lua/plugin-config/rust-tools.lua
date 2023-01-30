@@ -3,8 +3,7 @@ return function()
 
     rt.setup({
         server = {
-            on_attach = function(_, bufnr)
-            end,
+            on_attach = function(_, bufnr) end,
         },
     })
 end

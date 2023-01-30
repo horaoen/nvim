@@ -70,5 +70,66 @@ keyset('n', '<leader>fb', '<cmd>Telescope buffers<cr>', {})
 keyset('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', {})
 keyset('n', '<leader>fp', '<cmd>Telescope projects<cr>', {})
 
-require('plugin-keymap.crates')
-require('plugin-keymap.toggleterm')
+keyset('n', 'gh', '<cmd>Lspsaga lsp_finder<CR>', { silent = true })
+keyset({ 'n', 'v' }, '<leader>ca', '<cmd>Lspsaga code_action<CR>', { silent = true })
+keyset('n', 'gr', '<cmd>Lspsaga rename<CR>', { silent = true })
+keyset('n', 'gd', '<cmd>Lspsaga peek_definition<CR>', { silent = true })
+keyset('n', '<leader>cd', '<cmd>Lspsaga show_line_diagnostics<CR>', { silent = true })
+keyset('n', '<leader>cd', '<cmd>Lspsaga show_cursor_diagnostics<CR>', { silent = true })
+keyset('n', '[e', '<cmd>Lspsaga diagnostic_jump_prev<CR>', { silent = true })
+keyset('n', ']e', '<cmd>Lspsaga diagnostic_jump_next<CR>', { silent = true })
+
+keyset('n', '[E', function()
+    require('lspsaga.diagnostic').goto_prev({ severity = vim.diagnostic.severity.ERROR })
+end, { silent = true })
+
+keyset('n', ']E', function()
+    require('lspsaga.diagnostic').goto_next({ severity = vim.diagnostic.severity.ERROR })
+end, { silent = true })
+
+keyset('n', '<leader>o', '<cmd>Lspsaga outline<CR>', { silent = true })
+keyset('n', 'K', '<cmd>Lspsaga hover_doc<CR>', { silent = true })
+keyset('n', '<A-d>', '<cmd>Lspsaga open_floaterm<CR>', { silent = true })
+keyset('n', '<A-d>', '<cmd>Lspsaga open_floaterm lazygit<CR>', { silent = true })
+keyset('t', '<A-d>', [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
+
+keyset('n', '<leader>tt', '<cmd>ToggleTerm size=17 direction=horizontal<cr>', opts)
+keyset('n', '<leader>tv', '<cmd>ToggleTerm size=60 direction=vertical<cr>', opts)
+keyset('n', '<leader>tf', '<cmd>ToggleTerm size=40 direction=float<cr>', opts)
+
+keyset('n', '<leader>ct', require('crates').toggle, opts)
+keyset('n', '<leader>cr', require('crates').reload, opts)
+
+keyset('n', '<leader>cv', require('crates').show_versions_popup, opts)
+keyset('n', '<leader>cf', require('crates').show_features_popup, opts)
+keyset('n', '<leader>cd', require('crates').show_dependencies_popup, opts)
+
+keyset('n', '<leader>cU', require('crates').upgrade_crate, opts)
+keyset('v', '<leader>cU', require('crates').upgrade_crates, opts)
+keyset('n', '<leader>cA', require('crates').upgrade_all_crates, opts)
+
+keyset('n', '<leader>cH', require('crates').open_homepage, opts)
+keyset('n', '<leader>cR', require('crates').open_repository, opts)
+keyset('n', '<leader>cD', require('crates').open_documentation, opts)
+keyset('n', '<leader>cC', require('crates').open_crates_io, opts)
+
+local keymap = {}
+keymap.cmp = function(cmp)
+    return {
+        ['<A-.>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+        ['<A-,>'] = cmp.mapping({
+            i = cmp.mapping.abort(),
+            c = cmp.mapping.close(),
+        }),
+        ['<C-k>'] = cmp.mapping.select_prev_item(),
+        ['<C-j>'] = cmp.mapping.select_next_item(),
+        ['<CR>'] = cmp.mapping.confirm({
+            select = true,
+            behavior = cmp.ConfirmBehavior.Replace,
+        }),
+        ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+        ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+    }
+end
+
+return keymap

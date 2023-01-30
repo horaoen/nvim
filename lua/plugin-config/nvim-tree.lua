@@ -23,14 +23,9 @@ return function()
             },
         },
     }
-    local exist, nvim_tree = pcall(require, 'nvim-tree')
-    if not exist then
-        vim.notify('not found nvim-tree')
-        return
-    end
 
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
 
-    nvim_tree.setup(setup_opts)
+    require('nvim-tree').setup(setup_opts)
 end

@@ -1,214 +1,210 @@
-local ensure_packer = function()
-    local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-    if fn.empty(fn.glob(install_path)) > 0 then
-        fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
-        cmd([[packadd packer.nvim]])
-        return true
-    end
-    return false
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        'git',
+        'clone',
+        '--filter=blob:none',
+        'https://github.com/folke/lazy.nvim.git',
+        '--branch=stable', -- latest stable release
+        lazypath,
+    })
 end
+vim.opt.rtp:prepend(lazypath)
 
-local packer_bootstrap = ensure_packer()
--- Use a protected call so we don't error out on first use
-require('packer').startup({
-    function(use)
-        --[[
-            ====== 1. packer can manage itself ======
-        --]]
-        use('wbthomason/packer.nvim')
-
-        --[[ 
-            ====== 2. outlook plugin ======
-        --]]
-
-        -- 2.1 theme
-        use({
-            'catppuccin/nvim',
-            as = 'catppuccin',
-            config = require('plugin-config.theme'),
-        })
-
-        --[[ 
-            ====== 3. some useful tools ======
-        --]]
-
-        use({
-            'windwp/nvim-autopairs',
-            event = 'VimEnter',
-            config = require('plugin-config.autopairs'),
-        })
-
-        use({ 'moll/vim-bbye', event = 'BufRead' }) -- buffer delete
-
-        use({
-            'lukas-reineke/indent-blankline.nvim',
-            event = 'BufRead',
-            config = require('plugin-config.indent-blankline'),
-        })
-        -- 3.2 common
-        use({
-            'rcarriga/nvim-notify', -- notify tools
-            config = require('plugin-config.nvim-notify'),
-        })
-
-        use({
-            'nvim-tree/nvim-tree.lua',
-            requires = {
-                'nvim-tree/nvim-web-devicons', -- optional, for file icons
-            },
-            tag = 'nightly',
-            config = require('plugin-config.nvim-tree'),
-        })
-
-        use({
-            'nvim-telescope/telescope.nvim',
-            tag = '0.1.0',
-            requires = {
-                { 'nvim-lua/plenary.nvim' },
-            },
-            config = function()
-                require('telescope').load_extension('projects')
-            end,
-        })
-        use({
-            'akinsho/toggleterm.nvim',
-            tag = '*',
-            config = require('plugin-config.toggleterm'),
-        })
-
-        use({
-            'nvim-lualine/lualine.nvim', -- statusline
-            config = require('plugin-config.lualine'),
-        })
-
-        use({
-            'goolord/alpha-nvim',
-            requires = { 'nvim-tree/nvim-web-devicons' },
-            config = require('plugin-config.dashboard'),
-        })
-
-        use({
-            'akinsho/bufferline.nvim',
-            tag = 'v3.*',
-            event = 'BufRead',
-            config = require('plugin-config.bufferline'),
-        })
-
-        use({
-            'ellisonleao/glow.nvim',
-            config = require('plugin-config.glow'),
-            cmd = 'Glow',
-        })
-
-        use({
-            'numToStr/Comment.nvim',
-            event = 'BufRead',
-            config = function()
-                require('Comment').setup({})
-            end,
-        })
-        use({
-            'Pocco81/auto-save.nvim',
-            event = 'BufRead',
-            config = require('plugin-config.auto-save'),
-        })
-
-        use({
+require('lazy').setup({
+    {
+        'dstein64/vim-startuptime',
+        cmd = 'StartupTime',
+    },
+    {
+        'catppuccin/nvim',
+        lazy = false,
+        priority = 1000,
+        name = 'catppuccin',
+        config = function()
+            vim.cmd([[colorscheme catppuccin-mocha]])
+        end,
+    },
+    {
+        'nvim-tree/nvim-tree.lua',
+        dependencies = 'nvim-tree/nvim-web-devicons',
+        version = 'nightly',
+        config = require('plugin-config.nvim-tree'),
+    },
+    {
+        'windwp/nvim-autopairs',
+        event = 'InsertEnter',
+        config = function()
+            require('nvim-autopairs').setup()
+        end,
+    },
+    {
+        'moll/vim-bbye',
+        event = 'BufRead',
+    },
+    {
+        'lukas-reineke/indent-blankline.nvim',
+        event = 'BufRead',
+        config = function()
+            require('indent_blankline').setup()
+        end,
+    },
+    {
+        'rcarriga/nvim-notify',
+        config = require('plugin-config.nvim-notify'),
+    },
+    {
+        'nvim-telescope/telescope.nvim',
+        cmd = 'Telescope',
+        version = '0.1.x',
+        dependencies = {
+            'nvim-lua/plenary.nvim',
             'ahmedkhalf/project.nvim',
-            config = function()
-                require('project_nvim').setup({})
-            end,
-        })
-        use({
-            'rmagatti/auto-session',
-            config = function()
-                require('auto-session').setup({
-                    log_level = 'error',
-                    auto_session_suppress_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
-                })
-            end,
-        })
-        --[[
-            ====== 4. language support ======
-        --]]
-        use({
-            'williamboman/mason.nvim',
-            config = require('plugin-config.mason'),
-        })
-        -- 4.1 lsp
-        use({
-            'williamboman/mason-lspconfig.nvim',
-            config = require('plugin-config.mason-lspconfig'),
-        })
+        },
+        config = function()
+            require('telescope').load_extension('projects')
+        end,
+    },
+    {
+        'ahmedkhalf/project.nvim',
+        config = function()
+            require('project_nvim').setup({})
+        end,
+    },
+    {
+        'akinsho/toggleterm.nvim',
+        config = require('plugin-config.toggleterm'),
+    },
+    {
+        'nvim-lualine/lualine.nvim', -- statusline
+        config = require('plugin-config.lualine'),
+    },
+    {
+        'goolord/alpha-nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        config = require('plugin-config.dashboard'),
+    },
+    {
+        'akinsho/bufferline.nvim',
+        version = 'v3.*',
+        event = 'BufRead',
+        config = function()
+            require('bufferline').setup()
+        end,
+    },
+    {
+        'numToStr/Comment.nvim',
+        event = 'BufRead',
+        config = function()
+            require('Comment').setup({})
+        end,
+    },
+    {
+        'Pocco81/auto-save.nvim',
+        event = 'BufRead',
+        config = require('plugin-config.auto-save'),
+    },
+    {
+        'ellisonleao/glow.nvim',
+        config = true,
+        cmd = 'Glow',
+    },
+    {
+        'ahmedkhalf/project.nvim',
+        config = function()
+            require('project_nvim').setup({})
+        end,
+    },
+    {
+        'rmagatti/auto-session',
+        config = function()
+            require('auto-session').setup({
+                log_level = 'error',
+                auto_session_suppress_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
+            })
+        end,
+    },
+    {
+        'williamboman/mason.nvim',
+        config = require('plugin-config.mason'),
+    },
+    -- 4.1 lsp
+    {
+        'williamboman/mason-lspconfig.nvim',
+        config = require('plugin-config.mason-lspconfig'),
+    },
 
-        use({
+    {
+        'neovim/nvim-lspconfig',
+        evnet = 'BufRead',
+        config = require('plugin-config.lsp-config'),
+    },
+
+    {
+        'j-hui/fidget.nvim',
+        event = 'BufRead',
+        config = function()
+            require('fidget').setup()
+        end,
+    },
+    {
+        'nvim-treesitter/nvim-treesitter',
+        build = ':TSUpdate',
+        config = require('plugin-config.nvim-treesitter'),
+    },
+
+    {
+        'glepnir/lspsaga.nvim',
+        event = 'BufRead',
+        version = 'main',
+        config = function()
+            require('lspsaga').setup()
+        end,
+    },
+
+    {
+        'jose-elias-alvarez/null-ls.nvim',
+        event = 'BufRead',
+        config = require('plugin-config.null-ls'),
+    },
+
+    {
+        'onsails/lspkind-nvim',
+        event = 'BufRead',
+    },
+
+    -- 4.2 dap
+    { 'mfussenegger/nvim-dap' },
+
+    -- 4.3 cmp
+    {
+        'hrsh7th/nvim-cmp',
+        event = 'InsertEnter',
+        dependencies = {
+            'onsails/lspkind.nvim',
+            'hrsh7th/vim-vsnip',
+            'hrsh7th/cmp-vsnip',
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-cmdline',
+        },
+        config = require('plugin-config.cmp'),
+    },
+    -- for rust
+    {
+        'saecki/crates.nvim',
+        version = 'v0.3.0',
+        event = { 'BufRead Cargo.toml' },
+        dependencies = { 'nvim-lua/plenary.nvim' },
+        config = require('plugin-config.crates'),
+    },
+    {
+        'simrat39/rust-tools.nvim',
+        ft = 'rust',
+        dependencies = {
             'neovim/nvim-lspconfig',
-            after = { 'cmp-nvim-lsp', 'fidget.nvim' },
-            config = require('plugin-config.lsp-config'),
-        })
-
-        use({
-            'j-hui/fidget.nvim',
-            event = 'BufAdd',
-            config = require('plugin-config.fidget'),
-        })
-        use({
-            'nvim-treesitter/nvim-treesitter',
-            run = ':TSUpdate',
-            config = require('plugin-config.nvim-treesitter'),
-        })
-
-        use({
-            'glepnir/lspsaga.nvim',
-            event = 'BufRead',
-            branch = 'main',
-            config = require('plugin-config.lspsaga'),
-        })
-
-        use({
-            'jose-elias-alvarez/null-ls.nvim',
-            event = 'BufRead',
-            config = require('plugin-config.null-ls'),
-        })
-
-        use({
-            'onsails/lspkind-nvim',
-            event = 'BufAdd',
-        })
-
-        -- 4.2 dap
-        use('mfussenegger/nvim-dap')
-
-        -- 4.3 cmp
-        use({
-            'hrsh7th/nvim-cmp',
-            after = 'lspkind-nvim',
-            config = require('plugin-config.cmp'),
-        })
-
-        use({ 'hrsh7th/vim-vsnip', after = 'nvim-cmp' })
-        use({ 'hrsh7th/cmp-vsnip', after = 'nvim-cmp' })
-        use({ 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp' })
-        use({ 'hrsh7th/cmp-buffer', after = 'nvim-cmp' })
-        use({ 'hrsh7th/cmp-path', after = 'nvim-cmp' })
-        use({ 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' })
-        -- for rust
-        use({
-            'saecki/crates.nvim',
-            tag = 'v0.3.0',
-            after = 'null-ls.nvim',
-            requires = { 'nvim-lua/plenary.nvim' },
-            config = require('plugin-config.crates'),
-        })
-
-        use({
-            'simrat39/rust-tools.nvim',
-            after = 'nvim-lspconfig',
-            config = require('plugin-config.rust-tools'),
-        })
-
-        if packer_bootstrap then
-            require('packer').sync()
-        end
-    end,
+        },
+        config = require('plugin-config.rust-tools'),
+    },
 })
