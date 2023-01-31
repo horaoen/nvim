@@ -29,21 +29,15 @@ $ git clone https://github.com/horaoen/nvim.git ~/.config/nvim
 ├── init.lua
 ├── lua
 │   ├── autocmd.lua
-│   ├── global-v.lua  
+│   ├── global-v.lua
 │   ├── keymap.lua
 │   ├── options.lua
 │   ├── plugin-config
-│   │   ├── autopairs.lua
 │   │   ├── auto-save.lua
-│   │   ├── bufferline.lua
 │   │   ├── cmp.lua
 │   │   ├── crates.lua
 │   │   ├── dashboard.lua
-│   │   ├── fidget.lua
-│   │   ├── glow.lua
-│   │   ├── indent-blankline.lua
 │   │   ├── lsp-config.lua
-│   │   ├── lspsaga.lua
 │   │   ├── lualine.lua
 │   │   ├── mason-lspconfig.lua
 │   │   ├── mason.lua
@@ -52,16 +46,10 @@ $ git clone https://github.com/horaoen/nvim.git ~/.config/nvim
 │   │   ├── nvim-tree.lua
 │   │   ├── nvim-treesitter.lua
 │   │   ├── rust-tools.lua
-│   │   ├── theme.lua
-│   │   └── toggleterm.lua
-│   ├── plugin-keymap
-│   │   ├── cmp.lua
-│   │   ├── crates.lua
-│   │   ├── lspsaga.lua
+│   │   ├── telescope.lua
 │   │   └── toggleterm.lua
 │   └── plugins.lua
-└── README.md
-```
+└── README.md```
 ## Dependences
 
 > You can use your package manager to install them. Errors may still be reported after installing them, you only need to install the default dependencies through "heckheath" command in neovim.
@@ -74,7 +62,7 @@ $ git clone https://github.com/horaoen/nvim.git ~/.config/nvim
 6. glow
 
 ## Plugin list
-- [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
+- [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
 - [catppuccin/nvim](https://github.com/catppuccin/nvim)
 - [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 - [moll/vim-bbye](https://github.com/moll/vim-bbye)
@@ -105,6 +93,9 @@ $ git clone https://github.com/horaoen/nvim.git ~/.config/nvim
 - [ellisonleao/glow.nvim](https://github.com/ellisonleao/glow.nvim)
 - [Pocco81/auto-save.nvim](https://github.com/Pocco81/auto-save.nvim)
 - [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)
+- [Saecki/crates.nvim](https://github.com/Saecki/crates.nvim)
+- [folke/trouble.nvim](https://github.com/folke/trouble.nvim)
+- [folke/todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
 ## Keymap
 
 ### basic
