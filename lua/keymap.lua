@@ -64,11 +64,13 @@ keyset('n', '<C-c>', '<cmd>Bdelete<cr>', opts)
 
 keyset('n', '<leader>e', '<cmd>NvimTreeToggle<cr>', opts)
 
-keyset('n', '<leader>ff', '<cmd>Telescope find_files<cr>', {})
+keyset('n', '<leader>ff', '<cmd>Telescope find_files theme=dropdown<cr>', {})
 keyset('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', {})
 keyset('n', '<leader>fb', '<cmd>Telescope buffers<cr>', {})
 keyset('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', {})
 keyset('n', '<leader>fp', '<cmd>Telescope projects<cr>', {})
+keyset('n', '<leader>ft', '<cmd>TodoTelescope theme=dropdown<cr>', {})
+keyset('n', '<leader>fe', '<cmd>Trouble<cr>', {})
 
 keyset('n', 'gh', '<cmd>Lspsaga lsp_finder<CR>', { silent = true })
 keyset({ 'n', 'v' }, '<leader>ca', '<cmd>Lspsaga code_action<CR>', { silent = true })

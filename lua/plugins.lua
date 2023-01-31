@@ -60,6 +60,7 @@ require('lazy').setup({
         dependencies = {
             'nvim-lua/plenary.nvim',
             'ahmedkhalf/project.nvim',
+            'folke/trouble.nvim',
         },
         config = function()
             require('telescope').load_extension('projects')
@@ -106,7 +107,9 @@ require('lazy').setup({
     },
     {
         'ellisonleao/glow.nvim',
-        config = true,
+        config = function()
+            require('glow').setup()
+        end,
         cmd = 'Glow',
     },
     {
@@ -206,5 +209,19 @@ require('lazy').setup({
             'neovim/nvim-lspconfig',
         },
         config = require('plugin-config.rust-tools'),
+    },
+    {
+        'folke/todo-comments.nvim',
+        dependencies = 'nvim-lua/plenary.nvim',
+        config = function()
+            require('todo-comments').setup({})
+        end,
+    },
+    {
+        'folke/trouble.nvim',
+        dependencies = 'nvim-tree/nvim-web-devicons',
+        config = function()
+            require('trouble').setup({})
+        end,
     },
 })
