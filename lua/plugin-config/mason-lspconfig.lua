@@ -3,7 +3,6 @@ return function()
         ensure_installed = {
             'sumneko_lua',
             'tsserver',
-            'bashls',
             'cssls',
             'dockerls',
             'emmet_ls',

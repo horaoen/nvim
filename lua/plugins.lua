@@ -39,6 +39,9 @@ require('lazy').setup({
         end,
     },
     {
+        'windwp/nvim-ts-autotag',
+    },
+    {
         'moll/vim-bbye',
         event = 'BufRead',
     },
@@ -141,6 +144,9 @@ require('lazy').setup({
         'neovim/nvim-lspconfig',
         evnet = 'BufRead',
         config = require('plugin-config.lsp-config'),
+        dependencies = {
+            'b0o/SchemaStore.nvim',
+        },
     },
 
     {
@@ -153,6 +159,9 @@ require('lazy').setup({
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
+        dependencies = {
+            'nvim-ts-autotag',
+        },
         config = require('plugin-config.nvim-treesitter'),
     },
 
@@ -173,6 +182,11 @@ require('lazy').setup({
 
     {
         'onsails/lspkind-nvim',
+        event = 'BufRead',
+    },
+
+    {
+        'b0o/SchemaStore.nvim',
         event = 'BufRead',
     },
 

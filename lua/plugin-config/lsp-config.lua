@@ -23,4 +23,30 @@ return function()
         on_attach = on_attach,
         capabilities = capabilities,
     })
+
+    lspconfig['cssls'].setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+    })
+
+    lspconfig['html'].setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+    })
+
+    lspconfig['jsonls'].setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+        settings = {
+            json = {
+                schemas = require('schemastore').json.schemas(),
+                validate = { enable = true },
+            }
+        }
+    })
+
+    lspconfig['tsserver'].setup({
+        on_attach = on_attach,
+        capabilities = capabilities
+    })
 end
