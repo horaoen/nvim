@@ -1,13 +1,7 @@
 return function()
     local lspconfig = require('lspconfig')
-    local on_attach = function(client, bufnr)
-        vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-        client.server_capabilities.document_formatting = false
-        client.server_capabilities.document_range_formatting = false
-    end
-
-    local capabilities = require('cmp_nvim_lsp').default_capabilities()
+    local on_attach = require('util.lsptool').on_attach
+    local capabilities = require('util.lsptool').capabilities
 
     local lsp_flags = {
         debounce_text_changes = 150,
@@ -19,7 +13,7 @@ return function()
         flags = lsp_flags,
     })
 
-    lspconfig['sumneko_lua'].setup({
+    lspconfig['lua_ls'].setup({
         on_attach = on_attach,
         capabilities = capabilities,
     })
@@ -41,12 +35,7 @@ return function()
             json = {
                 schemas = require('schemastore').json.schemas(),
                 validate = { enable = true },
-            }
-        }
-    })
-
-    lspconfig['tsserver'].setup({
-        on_attach = on_attach,
-        capabilities = capabilities
+            },
+        },
     })
 end

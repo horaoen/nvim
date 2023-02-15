@@ -146,6 +146,7 @@ require('lazy').setup({
         config = require('plugin-config.lsp-config'),
         dependencies = {
             'b0o/SchemaStore.nvim',
+            'fidget.nvim',
         },
     },
 
@@ -212,9 +213,17 @@ require('lazy').setup({
     {
         'saecki/crates.nvim',
         version = 'v0.3.0',
-        event = { 'BufRead Cargo.toml' },
-        dependencies = { 'nvim-lua/plenary.nvim' },
+        event = 'BufRead Cargo.toml',
+        dependencies = { 'plenary.nvim' },
         config = require('plugin-config.crates'),
+    },
+    {
+        'jose-elias-alvarez/typescript.nvim',
+        dependencies = {
+            'nvim-lspconfig',
+            'cmp-nvim-lsp',
+        },
+        config = require('plugin-config.typescript'),
     },
     {
         'simrat39/rust-tools.nvim',
