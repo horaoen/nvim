@@ -10,6 +10,7 @@ return function()
             'jsonls',
             'rust_analyzer',
             'yamlls',
+            'eslint'
         },
     })
 end

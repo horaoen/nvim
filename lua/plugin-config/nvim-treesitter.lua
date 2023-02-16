@@ -14,6 +14,7 @@ return function()
             'typescript',
             'yaml',
             'html',
+            'tsx'
         },
         sync_install = false,
         highlight = {

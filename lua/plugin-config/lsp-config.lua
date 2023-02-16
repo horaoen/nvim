@@ -3,16 +3,6 @@ return function()
     local on_attach = require('util.lsptool').on_attach
     local capabilities = require('util.lsptool').capabilities
 
-    local lsp_flags = {
-        debounce_text_changes = 150,
-    }
-
-    lspconfig['tsserver'].setup({
-        on_attach = on_attach,
-        capabilities = capabilities,
-        flags = lsp_flags,
-    })
-
     lspconfig['lua_ls'].setup({
         on_attach = on_attach,
         capabilities = capabilities,
@@ -37,5 +27,10 @@ return function()
                 validate = { enable = true },
             },
         },
+    })
+
+    lspconfig['eslint'].setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
     })
 end
