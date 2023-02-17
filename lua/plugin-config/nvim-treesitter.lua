@@ -14,7 +14,10 @@ return function()
             'typescript',
             'yaml',
             'html',
-            'tsx'
+            'tsx',
+        },
+        indent = {
+            enable = true,
         },
         sync_install = false,
         highlight = {

@@ -104,11 +104,6 @@ require('lazy').setup({
         end,
     },
     {
-        'Pocco81/auto-save.nvim',
-        event = 'BufRead',
-        config = require('plugin-config.auto-save'),
-    },
-    {
         'ellisonleao/glow.nvim',
         config = function()
             require('glow').setup()

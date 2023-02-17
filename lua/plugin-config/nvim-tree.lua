@@ -1,5 +1,6 @@
 return function()
     local setup_opts = {
+        hijack_cursor = true,
         sync_root_with_cwd = true,
         respect_buf_cwd = true,
         update_cwd = true,
@@ -7,7 +8,9 @@ return function()
             enable = true,
             update_cwd = true,
         },
-        filters = {},
+        filters = {
+            dotfiles = true,
+        },
         view = {
             width = 34,
             side = 'left',
