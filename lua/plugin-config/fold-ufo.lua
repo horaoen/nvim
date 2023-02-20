@@ -7,6 +7,7 @@ return function()
     vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
     vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
-    require('ufo').setup()
-
+    require('ufo').setup({
+        close_fold_kinds = { 'imports', 'comment' },
+    })
 end
