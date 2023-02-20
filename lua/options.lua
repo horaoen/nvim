@@ -34,10 +34,6 @@ local options = {
     guifont = 'monospace:h17', -- the font used in graphical neovim applications
     shell = 'fish',
     filetype = 'plugin',
-    foldmethod = 'expr',
-    foldexpr = 'nvim_treesitter#foldexpr()',
-    foldenable = false,
-    foldlevel = 99,
 }
 
 vim.opt.shortmess:append('c')

@@ -126,6 +126,12 @@ require('lazy').setup({
         end,
     },
     {
+        'kevinhwang91/nvim-ufo',
+        dependencies = { 'kevinhwang91/promise-async' },
+        event = 'BufRead',
+        config = require('plugin-config.fold-ufo')
+    },
+    {
         'williamboman/mason.nvim',
         config = require('plugin-config.mason'),
     },

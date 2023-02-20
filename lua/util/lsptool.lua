@@ -8,4 +8,9 @@ lsptool.on_attach = function(client, bufnr)
 end
 lsptool.capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+lsptool.capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true,
+}
+
 return lsptool
