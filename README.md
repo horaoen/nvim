@@ -49,7 +49,8 @@ $ git clone https://github.com/horaoen/nvim.git ~/.config/nvim
 │   │   ├── telescope.lua
 │   │   └── toggleterm.lua
 │   └── plugins.lua
-└── README.md```
+└── README.md
+```
 ## Dependences
 
 > You can use your package manager to install them. Errors may still be reported after installing them, you only need to install the default dependencies through "heckheath" command in neovim.

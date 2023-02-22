@@ -111,13 +111,6 @@ require('lazy').setup({
         end,
     },
     {
-        'ellisonleao/glow.nvim',
-        config = function()
-            require('glow').setup()
-        end,
-        cmd = 'Glow',
-    },
-    {
         'ahmedkhalf/project.nvim',
         config = function()
             require('project_nvim').setup({})
