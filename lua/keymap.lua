@@ -94,6 +94,8 @@ keyset('n', '<A-d>', '<cmd>Lspsaga open_floaterm<CR>', { silent = true })
 keyset('n', '<A-d>', '<cmd>Lspsaga open_floaterm lazygit<CR>', { silent = true })
 keyset('t', '<A-d>', [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
 
+keyset('n', '<leader>z', '<cmd>ZenMode<cr>', opts)
+
 keyset('n', '<leader>tt', '<cmd>ToggleTerm size=17 direction=horizontal<cr>', opts)
 keyset('n', '<leader>tv', '<cmd>ToggleTerm size=60 direction=vertical<cr>', opts)
 keyset('n', '<leader>tf', '<cmd>ToggleTerm size=40 direction=float<cr>', opts)

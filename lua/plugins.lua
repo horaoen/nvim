@@ -89,6 +89,13 @@ require('lazy').setup({
         config = require('plugin-config.dashboard'),
     },
     {
+        'folke/zen-mode.nvim',
+        cmd = 'ZenMode',
+        config = function()
+            require('zen-mode').setup({})
+        end,
+    },
+    {
         'akinsho/bufferline.nvim',
         version = 'v3.*',
         event = 'BufRead',
@@ -129,7 +136,7 @@ require('lazy').setup({
         'kevinhwang91/nvim-ufo',
         dependencies = { 'kevinhwang91/promise-async' },
         event = 'BufRead',
-        config = require('plugin-config.fold-ufo')
+        config = require('plugin-config.fold-ufo'),
     },
     {
         'williamboman/mason.nvim',
