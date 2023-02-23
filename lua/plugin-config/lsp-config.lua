@@ -33,4 +33,9 @@ return function()
         on_attach = on_attach,
         capabilities = capabilities,
     })
+
+    lspconfig['cssmodules_ls'].setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+    })
 end
