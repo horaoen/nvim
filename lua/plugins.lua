@@ -13,10 +13,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
     {
-        'dstein64/vim-startuptime',
-        cmd = 'StartupTime',
-    },
-    {
         'catppuccin/nvim',
         lazy = false,
         priority = 1000,
@@ -40,6 +36,7 @@ require('lazy').setup({
     },
     {
         'windwp/nvim-ts-autotag',
+        lazy = true,
     },
     {
         'moll/vim-bbye',
@@ -81,6 +78,7 @@ require('lazy').setup({
     },
     {
         'nvim-lualine/lualine.nvim', -- statusline
+        event = 'BufRead',
         config = require('plugin-config.lualine'),
     },
     {
@@ -133,17 +131,23 @@ require('lazy').setup({
     },
     {
         'williamboman/mason.nvim',
+        lazy = true,
         config = require('plugin-config.mason'),
     },
     -- 4.1 lsp
     {
         'williamboman/mason-lspconfig.nvim',
+        lazy = true,
+        event = 'BufRead',
+        dependencies = {
+            'mason.nvim',
+        },
         config = require('plugin-config.mason-lspconfig'),
     },
 
     {
         'neovim/nvim-lspconfig',
-        evnet = 'BufRead',
+        lazy = true,
         config = require('plugin-config.lsp-config'),
         dependencies = {
             'b0o/SchemaStore.nvim',
@@ -160,6 +164,7 @@ require('lazy').setup({
     },
     {
         'nvim-treesitter/nvim-treesitter',
+        lazy = true,
         build = ':TSUpdate',
         dependencies = {
             'nvim-ts-autotag',
@@ -175,25 +180,20 @@ require('lazy').setup({
             require('lspsaga').setup()
         end,
     },
-
     {
         'jose-elias-alvarez/null-ls.nvim',
-        event = 'BufRead',
+        lazy = true,
         config = require('plugin-config.null-ls'),
     },
-
     {
         'onsails/lspkind-nvim',
-        event = 'BufRead',
+        lazy = true,
     },
 
     {
         'b0o/SchemaStore.nvim',
-        event = 'BufRead',
+        lazy = true,
     },
-
-    -- 4.2 dap
-    { 'mfussenegger/nvim-dap' },
 
     -- 4.3 cmp
     {
@@ -214,16 +214,14 @@ require('lazy').setup({
     {
         'saecki/crates.nvim',
         version = 'v0.3.0',
+        lazy = true,
         event = 'BufRead Cargo.toml',
         dependencies = { 'plenary.nvim' },
         config = require('plugin-config.crates'),
     },
     {
         'jose-elias-alvarez/typescript.nvim',
-        dependencies = {
-            'nvim-lspconfig',
-            'cmp-nvim-lsp',
-        },
+        event = 'BufRead',
         config = require('plugin-config.typescript'),
     },
     {

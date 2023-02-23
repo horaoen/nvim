@@ -27,16 +27,17 @@ $ git clone https://github.com/horaoen/nvim.git ~/.config/nvim
 ├── ftplugin
 │   └── lua.lua
 ├── init.lua
+├── lazy-lock.json
 ├── lua
 │   ├── autocmd.lua
 │   ├── global-v.lua
 │   ├── keymap.lua
 │   ├── options.lua
 │   ├── plugin-config
-│   │   ├── auto-save.lua
 │   │   ├── cmp.lua
 │   │   ├── crates.lua
 │   │   ├── dashboard.lua
+│   │   ├── fold-ufo.lua
 │   │   ├── lsp-config.lua
 │   │   ├── lualine.lua
 │   │   ├── mason-lspconfig.lua
@@ -45,10 +46,14 @@ $ git clone https://github.com/horaoen/nvim.git ~/.config/nvim
 │   │   ├── nvim-notify.lua
 │   │   ├── nvim-tree.lua
 │   │   ├── nvim-treesitter.lua
+│   │   ├── nvim-ts-autotag.lua
 │   │   ├── rust-tools.lua
 │   │   ├── telescope.lua
-│   │   └── toggleterm.lua
-│   └── plugins.lua
+│   │   ├── toggleterm.lua
+│   │   └── typescript.lua
+│   ├── plugins.lua
+│   └── util
+│       └── lsptool.lua
 └── README.md
 ```
 ## Dependences
@@ -97,6 +102,7 @@ $ git clone https://github.com/horaoen/nvim.git ~/.config/nvim
 - [Saecki/crates.nvim](https://github.com/Saecki/crates.nvim)
 - [folke/trouble.nvim](https://github.com/folke/trouble.nvim)
 - [folke/todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
+- [folke/zen-mode](https://github.com/folke/zen-mode.nvim)
 ## Keymap
 
 ### basic
@@ -312,3 +318,10 @@ keyset('n', '<leader>tp', '<cmd>lua _PYTHON_TOGGLE()<CR>', { noremap = true, sil
 keyset('n', '<leader>th', '<cmd>lua _HTOP_TOGGLE()<CR>', { noremap = true, silent = true })
 
 ```
+
+## zen-mode
+
+```lua
+keyset('n', '<leader>z', '<cmd>ZenMode<cr>', opts)
+```
+
