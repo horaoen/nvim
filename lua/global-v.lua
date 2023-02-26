@@ -6,4 +6,3 @@ _G.cmd = vim.cmd
 _G.keyset = vim.keymap.set
 _G.keydel = vim.keymap.del
 _G.home = os.getenv('HOME')
-
