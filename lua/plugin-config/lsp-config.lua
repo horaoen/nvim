@@ -3,20 +3,15 @@ return function()
     local on_attach = require('util.lsptool').on_attach
     local capabilities = require('util.lsptool').capabilities
 
-    lspconfig['lua_ls'].setup({
+    local defaultSetupOptions = {
         on_attach = on_attach,
         capabilities = capabilities,
-    })
-
-    lspconfig['cssls'].setup({
-        on_attach = on_attach,
-        capabilities = capabilities,
-    })
-
-    lspconfig['html'].setup({
-        on_attach = on_attach,
-        capabilities = capabilities,
-    })
+    }
+    lspconfig['lua_ls'].setup(defaultSetupOptions)
+    lspconfig['cssls'].setup(defaultSetupOptions)
+    lspconfig['html'].setup(defaultSetupOptions)
+    lspconfig['eslint'].setup(defaultSetupOptions)
+    lspconfig['dockerls'].setup(defaultSetupOptions)
 
     lspconfig['jsonls'].setup({
         on_attach = on_attach,
@@ -27,15 +22,5 @@ return function()
                 validate = { enable = true },
             },
         },
-    })
-
-    lspconfig['eslint'].setup({
-        on_attach = on_attach,
-        capabilities = capabilities,
-    })
-
-    lspconfig['cssmodules_ls'].setup({
-        on_attach = on_attach,
-        capabilities = capabilities,
     })
 end
