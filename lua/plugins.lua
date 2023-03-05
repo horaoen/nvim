@@ -130,6 +130,15 @@ require('lazy').setup({
         config = require('plugin-config.fold-ufo'),
     },
     {
+        'sindrets/diffview.nvim',
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+        },
+        config = function()
+            require("diffview").setup({})
+        end,
+    },
+    {
         'williamboman/mason.nvim',
         lazy = true,
         config = require('plugin-config.mason'),
