@@ -26,3 +26,9 @@ end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
+vim.cmd([[
+    augroup lualine_augroup
+      autocmd!
+      autocmd User LspProgressStatusUpdated lua require("lualine").refresh()
+    augroup END
+]])

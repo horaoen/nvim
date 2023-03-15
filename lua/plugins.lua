@@ -77,9 +77,24 @@ require('lazy').setup({
         config = require('plugin-config.toggleterm'),
     },
     {
-        'nvim-lualine/lualine.nvim', -- statusline
-        event = 'BufRead',
+        'nvim-lualine/lualine.nvim',
+        event = { 'VimEnter' },
+        dependencies = {
+            'nvim-tree/nvim-web-devicons',
+            'linrongbin16/lsp-progress.nvim',
+        },
         config = require('plugin-config.lualine'),
+    },
+    {
+        'linrongbin16/lsp-progress.nvim',
+        branch = 'main',
+        event = { 'VimEnter' },
+        dependencies = {
+            'nvim-tree/nvim-web-devicons',
+        },
+        config = function()
+            require('lsp-progress').setup({})
+        end,
     },
     {
         'goolord/alpha-nvim',
@@ -135,7 +150,7 @@ require('lazy').setup({
             'nvim-lua/plenary.nvim',
         },
         config = function()
-            require("diffview").setup({})
+            require('diffview').setup({})
         end,
     },
     {
@@ -154,23 +169,6 @@ require('lazy').setup({
         config = require('plugin-config.mason-lspconfig'),
     },
 
-    {
-        'neovim/nvim-lspconfig',
-        lazy = true,
-        config = require('plugin-config.lsp-config'),
-        dependencies = {
-            'b0o/SchemaStore.nvim',
-            'fidget.nvim',
-        },
-    },
-
-    {
-        'j-hui/fidget.nvim',
-        event = 'BufRead',
-        config = function()
-            require('fidget').setup()
-        end,
-    },
     {
         'nvim-treesitter/nvim-treesitter',
         lazy = true,
