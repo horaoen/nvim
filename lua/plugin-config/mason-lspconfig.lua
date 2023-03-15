@@ -11,7 +11,7 @@ return function()
             'rust_analyzer',
             'yamlls',
             'eslint',
-            'docker_compose_language_service'
+            'docker_compose_language_service',
         },
     })
 end

@@ -81,20 +81,8 @@ require('lazy').setup({
         event = { 'VimEnter' },
         dependencies = {
             'nvim-tree/nvim-web-devicons',
-            'linrongbin16/lsp-progress.nvim',
         },
         config = require('plugin-config.lualine'),
-    },
-    {
-        'linrongbin16/lsp-progress.nvim',
-        branch = 'main',
-        event = { 'VimEnter' },
-        dependencies = {
-            'nvim-tree/nvim-web-devicons',
-        },
-        config = function()
-            require('lsp-progress').setup({})
-        end,
     },
     {
         'goolord/alpha-nvim',
@@ -114,6 +102,12 @@ require('lazy').setup({
         event = 'BufRead',
         config = function()
             require('bufferline').setup()
+        end,
+    },
+    {
+        'j-hui/fidget.nvim',
+        config = function()
+            require('fidget').setup()
         end,
     },
     {
@@ -168,6 +162,11 @@ require('lazy').setup({
         },
         config = require('plugin-config.mason-lspconfig'),
     },
+    {
+        'neovim/nvim-lspconfig',
+        lazy = true,
+        config = require('plugin-config.lsp-config'),
+    },
 
     {
         'nvim-treesitter/nvim-treesitter',
@@ -217,6 +216,7 @@ require('lazy').setup({
         },
         config = require('plugin-config.cmp'),
     },
+
     -- for rust
     {
         'saecki/crates.nvim',
