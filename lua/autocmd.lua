@@ -5,15 +5,6 @@ autocmd('TermOpen', {
     command = 'startinsert',
 })
 
-if vim.fn.has('wsl') then
-    vim.cmd([[
-      augroup Yank
-      autocmd!
-      autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
-      augroup END
-    ]])
-end
-
 function _G.set_terminal_keymaps()
     local opts = { noremap = true }
     keyset('t', '<esc>', [[<C-\><C-n>]], opts)
