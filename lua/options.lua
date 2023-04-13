@@ -31,8 +31,8 @@ local options = {
     wrap = false, -- display lines as one long line
     scrolloff = 8, -- is one of my fav
     sidescrolloff = 8,
-    guifont = 'monospace:h17', -- the font used in graphical neovim applications
-    shell = 'fish',
+    guifont = 'Fira Code Regular:h16', -- the font used in graphical neovim applications
+    shell = 'zsh',
     filetype = 'plugin',
 }
 
