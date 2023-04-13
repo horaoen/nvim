@@ -54,6 +54,9 @@ require('lazy').setup({
         config = require('plugin-config.nvim-notify'),
     },
     {
+        'Exafunction/codeium.vim',
+    },
+    {
         'nvim-telescope/telescope.nvim',
         cmd = 'Telescope',
         version = '0.1.x',
@@ -167,7 +170,6 @@ require('lazy').setup({
         lazy = true,
         config = require('plugin-config.lsp-config'),
     },
-
     {
         'nvim-treesitter/nvim-treesitter',
         lazy = true,
@@ -177,7 +179,6 @@ require('lazy').setup({
         },
         config = require('plugin-config.nvim-treesitter'),
     },
-
     {
         'glepnir/lspsaga.nvim',
         event = 'LspAttach',
@@ -199,7 +200,6 @@ require('lazy').setup({
         'onsails/lspkind-nvim',
         lazy = true,
     },
-
     {
         'b0o/SchemaStore.nvim',
         lazy = true,
