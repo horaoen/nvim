@@ -11,6 +11,9 @@ return function()
         filters = {
             dotfiles = true,
         },
+        renderer = {
+            group_empty = true,
+        },
         view = {
             width = 34,
             side = 'left',
