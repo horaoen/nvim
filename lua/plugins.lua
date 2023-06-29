@@ -258,4 +258,8 @@ require('lazy').setup({
             require('trouble').setup({})
         end,
     },
+    {
+        'mfussenegger/nvim-jdtls',
+        lazy = true,
+    }
 })
