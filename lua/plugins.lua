@@ -54,9 +54,6 @@ require('lazy').setup({
         config = require('plugin-config.nvim-notify'),
     },
     {
-        'Exafunction/codeium.vim',
-    },
-    {
         'nvim-telescope/telescope.nvim',
         cmd = 'Telescope',
         version = '0.1.x',
@@ -224,7 +221,6 @@ require('lazy').setup({
         },
         config = require('plugin-config.cmp'),
     },
-
     -- for rust
     {
         'saecki/crates.nvim',
