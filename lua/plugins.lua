@@ -89,8 +89,11 @@ require('lazy').setup({
     },
     {
         'goolord/alpha-nvim',
+        event = 'VimEnter',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
-        config = require('plugin-config.dashboard'),
+        config = function()
+            require('alpha').setup(require('alpha.themes.startify').config)
+        end,
     },
     {
         'folke/zen-mode.nvim',
@@ -261,5 +264,5 @@ require('lazy').setup({
     {
         'mfussenegger/nvim-jdtls',
         lazy = true,
-    }
+    },
 })
