@@ -8,8 +8,8 @@ return {
   event = "BufRead",
   config = function()
     local lspconfig = require('lspconfig')
-    local on_attach = require('util.lsptool').on_attach
-    local capabilities = require('util.lsptool').capabilities
+    local on_attach = require('util.lsp').on_attach
+    local capabilities = require('util.lsp').capabilities
 
     local defaultSetupOptions = {
       on_attach = on_attach,
