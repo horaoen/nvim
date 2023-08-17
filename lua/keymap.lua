@@ -100,22 +100,6 @@ keyset('n', '<leader>tt', '<cmd>ToggleTerm size=17 direction=horizontal<cr>', op
 keyset('n', '<leader>tv', '<cmd>ToggleTerm size=60 direction=vertical<cr>', opts)
 keyset('n', '<leader>tf', '<cmd>ToggleTerm size=40 direction=float<cr>', opts)
 
-keyset('n', '<leader>ct', require('crates').toggle, opts)
-keyset('n', '<leader>cr', require('crates').reload, opts)
-
-keyset('n', '<leader>cv', require('crates').show_versions_popup, opts)
-keyset('n', '<leader>cf', require('crates').show_features_popup, opts)
-keyset('n', '<leader>cd', require('crates').show_dependencies_popup, opts)
-
-keyset('n', '<leader>cU', require('crates').upgrade_crate, opts)
-keyset('v', '<leader>cU', require('crates').upgrade_crates, opts)
-keyset('n', '<leader>cA', require('crates').upgrade_all_crates, opts)
-
-keyset('n', '<leader>cH', require('crates').open_homepage, opts)
-keyset('n', '<leader>cR', require('crates').open_repository, opts)
-keyset('n', '<leader>cD', require('crates').open_documentation, opts)
-keyset('n', '<leader>cC', require('crates').open_crates_io, opts)
-
 local keymap = {}
 keymap.cmp = function(cmp)
     return {

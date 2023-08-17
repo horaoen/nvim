@@ -1,5 +1,7 @@
-return function()
-    local setup_opts = {
+return {
+    'nvim-tree/nvim-tree.lua',
+    lazy = false,
+    opts = {
         hijack_cursor = true,
         sync_root_with_cwd = true,
         respect_buf_cwd = true,
@@ -29,9 +31,4 @@ return function()
             },
         },
     }
-
-    vim.g.loaded_netrw = 1
-    vim.g.loaded_netrwPlugin = 1
-
-    require('nvim-tree').setup(setup_opts)
-end
+}

@@ -1,13 +1,12 @@
-return function()
-    local exist, treesitter = pcall(require, 'nvim-treesitter.configs')
-    if not exist then
-        return
-    end
-
-    treesitter.setup({
+return {
+    "nvim-treesitter/nvim-treesitter",
+    dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+    build = ":TSUpdate",
+    event = "BufReadPost",
+    opts = {
         ensure_installed = {
             'lua',
-            'vim',
+            'java',
             'rust',
             'markdown',
             'javascript',
@@ -27,7 +26,5 @@ return function()
         autotag = {
             enable = true,
         },
-    })
-
-    require('plugin-config.nvim-ts-autotag')
-end
+    }
+}

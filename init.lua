@@ -1,5 +1,5 @@
 require('global-v')
 require('options')
-require('plugins')
+require('plugin')
 require('autocmd')
 require('keymap')
