@@ -29,16 +29,12 @@ return {
     version = '0.1.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
-      'ahmedkhalf/project.nvim',
       'folke/trouble.nvim',
+      'nvim-telescope/telescope-project.nvim'
     },
     config = function()
-      require('telescope').load_extension('projects')
+      require'telescope'.load_extension('project')
     end,
-  },
-  {
-    'ahmedkhalf/project.nvim',
-    config = true,
   },
   {
     'goolord/alpha-nvim',

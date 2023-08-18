@@ -68,7 +68,7 @@ keyset('n', '<leader>ff', '<cmd>Telescope find_files theme=dropdown<cr>', {})
 keyset('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', {})
 keyset('n', '<leader>fb', '<cmd>Telescope buffers<cr>', {})
 keyset('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', {})
-keyset('n', '<leader>fp', '<cmd>Telescope projects<cr>', {})
+keyset('n', '<leader>fp', "<cmd>lua require'telescope'.extensions.project.project{}<cr>", {})
 keyset('n', '<leader>ft', '<cmd>TodoTelescope theme=dropdown<cr>', {})
 keyset('n', '<leader>fe', '<cmd>Trouble<cr>', {})
 
@@ -81,11 +81,11 @@ keyset('n', '[e', '<cmd>Lspsaga diagnostic_jump_prev<CR>', { silent = true })
 keyset('n', ']e', '<cmd>Lspsaga diagnostic_jump_next<CR>', { silent = true })
 
 keyset('n', '[E', function()
-    require('lspsaga.diagnostic').goto_prev({ severity = vim.diagnostic.severity.ERROR })
+  require('lspsaga.diagnostic').goto_prev({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
 
 keyset('n', ']E', function()
-    require('lspsaga.diagnostic').goto_next({ severity = vim.diagnostic.severity.ERROR })
+  require('lspsaga.diagnostic').goto_next({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
 
 keyset('n', '<leader>o', '<cmd>Lspsaga outline<CR>', { silent = true })
@@ -102,21 +102,21 @@ keyset('n', '<leader>tf', '<cmd>ToggleTerm size=40 direction=float<cr>', opts)
 
 local keymap = {}
 keymap.cmp = function(cmp)
-    return {
-        ['<A-.>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-        ['<A-,>'] = cmp.mapping({
-            i = cmp.mapping.abort(),
-            c = cmp.mapping.close(),
-        }),
-        ['<C-k>'] = cmp.mapping.select_prev_item(),
-        ['<C-j>'] = cmp.mapping.select_next_item(),
-        ['<CR>'] = cmp.mapping.confirm({
-            select = true,
-            behavior = cmp.ConfirmBehavior.Replace,
-        }),
-        ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-        ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-    }
+  return {
+    ['<A-.>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+    ['<A-,>'] = cmp.mapping({
+      i = cmp.mapping.abort(),
+      c = cmp.mapping.close(),
+    }),
+    ['<C-k>'] = cmp.mapping.select_prev_item(),
+    ['<C-j>'] = cmp.mapping.select_next_item(),
+    ['<CR>'] = cmp.mapping.confirm({
+      select = true,
+      behavior = cmp.ConfirmBehavior.Replace,
+    }),
+    ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+    ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+  }
 end
 
 return keymap

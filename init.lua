@@ -8,5 +8,6 @@ _G.home = os.getenv('HOME')
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+
 require('plugin')
 require('keymap')
