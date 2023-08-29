@@ -1,6 +1,4 @@
 # Migrate from 💤 LazyVim
-
-A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
 Refer to the [documentation](https://lazyvim.github.io/installation) to get started.
 
 ## Prepare for MacOS
@@ -9,4 +7,3 @@ Refer to the [documentation](https://lazyvim.github.io/installation) to get star
 brew install gnu-sed
 ``` 
 
-### change keymap for nvim-treesitter
