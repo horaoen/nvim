@@ -5,7 +5,6 @@ return {
     inlay_hints = {
       enabled = false,
     },
-    -- LSP Server Settings
     ---@type lspconfig.options
     servers = {
       jsonls = {},
