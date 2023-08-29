@@ -7,4 +7,5 @@ Refer to the [documentation](https://lazyvim.github.io/installation) to get star
 brew install gnu-sed
 ```
 ## test
+## test2
 
