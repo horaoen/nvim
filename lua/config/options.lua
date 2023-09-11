@@ -4,3 +4,5 @@
 vim.g.vimtex_view_method = "skim"
 
 vim.g.maplocalleader = " "
+
+vim.g.vimtex_compiler_latexmk_engines = { ["_"] = "-xelatex" }
