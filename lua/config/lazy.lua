@@ -13,15 +13,9 @@ require("lazy").setup({
 
     -- language
     { import = "lazyvim.plugins.extras.lang.rust" },
-    { import = "lazyvim.plugins.extras.lang.tex" },
     { import = "lazyvim.plugins.extras.lang.yaml" },
 
-    -- dubug
-    { import = "lazyvim.plugins.extras.dap.core" },
-    { import = "lazyvim.plugins.extras.dap.nlua" },
-
     -- editor
-    { import = "lazyvim.plugins.extras.editor.leap" },
     { import = "plugins" },
   },
   defaults = {
