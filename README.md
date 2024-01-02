@@ -1,10 +1,5 @@
-# Migrate from 💤 LazyVim
-Refer to the [documentation](https://lazyvim.github.io/installation) to get started.
+# Features
 
-## Prepare for MacOS
-
-```shell
-brew install gnu-sed
-```
-## test
-
+1. extend from lazyvim.
+2. lang: rust、c/c++、cmake、markdown、sql、typst.
+3. other plugin: zen-mode
