@@ -21,7 +21,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.markdown" },
     { import = "lazyvim.plugins.extras.lang.yaml" },
 
-    -- ui
+    -- extras
+    { import = "lazyvim.plugins.extras.util.project" },
     { import = "lazyvim.plugins.extras.ui.edgy" },
 
     -- editor
