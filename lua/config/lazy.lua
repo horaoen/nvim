@@ -24,6 +24,7 @@ require("lazy").setup({
     -- extras
     { import = "lazyvim.plugins.extras.util.project" },
     { import = "lazyvim.plugins.extras.ui.edgy" },
+    -- { import = "lazyvim.plugins.extras.editor.symbols-outline" },
 
     -- editor
     { import = "lazyvim.plugins.extras.coding.yanky" },
