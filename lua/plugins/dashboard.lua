@@ -26,6 +26,7 @@ return {
         " practice makes perfect.",
         "",
       },
+      packages = { enable = true },
       weak_header = { enable = false },
       shortcut = {
         {
@@ -45,7 +46,7 @@ return {
         {
           desc = " config",
           group = "Number",
-          action = "lua require('lazyvim.util').telescope.config_files()()",
+          action = "lua require('lazyvim.util').pick.config_files()()",
           key = "c",
         },
         {
