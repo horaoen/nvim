@@ -1,35 +1,21 @@
 return {
   {
-    "olimorris/codecompanion.nvim",
+    "sudo-tee/opencode.nvim",
+    config = function()
+      require("opencode").setup({})
+    end,
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    opts = {
-      opts = {
-        log_level = "DEBUG", -- or "TRACE"
+      {
+        "MeanderingProgrammer/render-markdown.nvim",
+        opts = {
+          anti_conceal = { enabled = false },
+          file_types = { "markdown", "opencode_output" },
+        },
+        ft = { "markdown", "Avante", "copilot-chat", "opencode_output" },
       },
+      "saghen/blink.cmp",
+      "folke/snacks.nvim",
     },
-
-    config = function()
-      require("codecompanion").setup({
-        interactions = {
-          chat = {
-            adapter = "gemini_cli",
-          },
-        },
-        adapters = {
-          acp = {
-            gemini_cli = function()
-              return require("codecompanion.adapters").extend("gemini_cli", {
-                defaults = {
-                  auth_method = "oauth-personal", -- "oauth-personal"|"gemini-api-key"|"vertex-ai"
-                },
-              })
-            end,
-          },
-        },
-      })
-    end,
   },
 }
