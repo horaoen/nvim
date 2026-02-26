@@ -7,17 +7,25 @@ return {
       opts = {
         servers = {
           jdtls = {
-            -- Your custom jdtls settings goes here
+            settings = {
+              java = {
+                format = {
+                  insertSpaces = true,
+                  tabSize = 4,
+                },
+              },
+            },
           },
         },
         setup = {
           jdtls = function()
-            require("java").setup({
-              -- Your custom nvim-java configuration goes here
-            })
+            require("java").setup({})
           end,
         },
       },
     },
+  },
+  keys = {
+    { "<leader>fj", "<cmd>:FzfLua lsp_live_workspace_symbols<cr>", desc = "Workspace Symbols Search" },
   },
 }
